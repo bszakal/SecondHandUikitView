@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,16 @@
 		17ECF666280C4BD200D3E87F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECF664280C4BD200D3E87F /* SecondViewController.swift */; };
 		17ECF667280C4BD200D3E87F /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ECF665280C4BD200D3E87F /* SecondViewController.xib */; };
 		17ECF669280C535E00D3E87F /* FirstTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECF668280C535E00D3E87F /* FirstTabViewModel.swift */; };
+		61633933294A0174006A10A5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 61633932294A0174006A10A5 /* GoogleSignIn */; };
+		61633935294A0174006A10A5 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 61633934294A0174006A10A5 /* GoogleSignInSwift */; };
+		61633938294A01A7006A10A5 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633937294A01A7006A10A5 /* FacebookCore */; };
+		6163393A294A01A7006A10A5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 61633939294A01A7006A10A5 /* FacebookLogin */; };
+		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
+		61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 61633944294A0280006A10A5 /* FirebaseAuth */; };
+		61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633946294A0280006A10A5 /* FirebaseFirestore */; };
+		61633949294A0280006A10A5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 61633948294A0280006A10A5 /* FirebaseFirestoreSwift */; };
+		6163394B294A0280006A10A5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6163394A294A0280006A10A5 /* FirebaseStorage */; };
+		6163394E294A0321006A10A5 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 6163394D294A0321006A10A5 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +75,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6163393D294A01CE006A10A5 /* NukeUI in Frameworks */,
+				6163394E294A0321006A10A5 /* Swinject in Frameworks */,
+				61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */,
+				6163394B294A0280006A10A5 /* FirebaseStorage in Frameworks */,
+				6163393A294A01A7006A10A5 /* FacebookLogin in Frameworks */,
+				61633933294A0174006A10A5 /* GoogleSignIn in Frameworks */,
+				61633938294A01A7006A10A5 /* FacebookCore in Frameworks */,
+				61633935294A0174006A10A5 /* GoogleSignInSwift in Frameworks */,
+				61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */,
+				61633949294A0280006A10A5 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +210,18 @@
 			dependencies = (
 			);
 			name = CoordinatorProject;
+			packageProductDependencies = (
+				61633932294A0174006A10A5 /* GoogleSignIn */,
+				61633934294A0174006A10A5 /* GoogleSignInSwift */,
+				61633937294A01A7006A10A5 /* FacebookCore */,
+				61633939294A01A7006A10A5 /* FacebookLogin */,
+				6163393C294A01CE006A10A5 /* NukeUI */,
+				61633944294A0280006A10A5 /* FirebaseAuth */,
+				61633946294A0280006A10A5 /* FirebaseFirestore */,
+				61633948294A0280006A10A5 /* FirebaseFirestoreSwift */,
+				6163394A294A0280006A10A5 /* FirebaseStorage */,
+				6163394D294A0321006A10A5 /* Swinject */,
+			);
 			productName = CoordinatorProject;
 			productReference = 17ECF62D280C438F00D3E87F /* CoordinatorProject.app */;
 			productType = "com.apple.product-type.application";
@@ -210,7 +242,7 @@
 				};
 			};
 			buildConfigurationList = 17ECF628280C438F00D3E87F /* Build configuration list for PBXProject "CoordinatorProject" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -218,6 +250,13 @@
 				Base,
 			);
 			mainGroup = 17ECF624280C438F00D3E87F;
+			packageReferences = (
+				61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				6163393B294A01CE006A10A5 /* XCRemoteSwiftPackageReference "NukeUI" */,
+				61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6163394C294A0321006A10A5 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 17ECF62E280C438F00D3E87F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -403,20 +442,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54YLWD89Z8;
+				DEVELOPMENT_TEAM = 7FAYNZLSH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoordinatorProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.karinprater.CoordinatorProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.szakal1.CoordinatorProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -438,7 +477,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,6 +513,102 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		6163393B294A01CE006A10A5 /* XCRemoteSwiftPackageReference "NukeUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/NukeUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		6163394C294A0321006A10A5 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		61633932294A0174006A10A5 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		61633934294A0174006A10A5 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		61633937294A01A7006A10A5 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		61633939294A01A7006A10A5 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		6163393C294A01CE006A10A5 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6163393B294A01CE006A10A5 /* XCRemoteSwiftPackageReference "NukeUI" */;
+			productName = NukeUI;
+		};
+		61633944294A0280006A10A5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		61633946294A0280006A10A5 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		61633948294A0280006A10A5 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		6163394A294A0280006A10A5 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		6163394D294A0321006A10A5 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6163394C294A0321006A10A5 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 17ECF625280C438F00D3E87F /* Project object */;
 }
