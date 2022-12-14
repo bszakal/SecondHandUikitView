@@ -7,43 +7,47 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class MainCoordinator: Coordinator {
     
-    var rootViewController: UITabBarController
+    //var rootViewController: UITabBarController
+    var rootViewController = UIViewController()
+    let loginState: LoginState
     
     var childCoordinators = [Coordinator]()
     
-    init() {
-        self.rootViewController = UITabBarController()
-        rootViewController.tabBar.isTranslucent = true
-        rootViewController.tabBar.backgroundColor = .lightGray
+    init(loginState: LoginState) {
+//        self.rootViewController = UITabBarController()
+//        rootViewController.tabBar.isTranslucent = true
+//        rootViewController.tabBar.backgroundColor = .lightGray
+        self.loginState = loginState
     }
     
     func start() {
         
-        let firstCoordinator = FirstTabCoodinator()
-        firstCoordinator.start()
-        self.childCoordinators.append(firstCoordinator)
-        let firstViewController = firstCoordinator.rootViewController
-        setup(vc: firstViewController,
-              title: "First Tab",
-              imageName: "paperplane",
-              selectedImageName: "paperplane.fill")
+//        let firstCoordinator = FirstTabCoodinator()
+//        firstCoordinator.start()
+//        self.childCoordinators.append(firstCoordinator)
+//        let firstViewController = firstCoordinator.rootViewController
+//        setup(vc: firstViewController,
+//              title: "First Tab",
+//              imageName: "paperplane",
+//              selectedImageName: "paperplane.fill")
+//
+//
+//        let secondCoordinator = SecondTabCoodinator()
+//        secondCoordinator.start()
+//        self.childCoordinators.append(secondCoordinator)
+//        let secondViewController = secondCoordinator.rootViewController
+//        setup(vc: secondViewController,
+//              title: "Second Tab",
+//              imageName: "bell",
+//              selectedImageName: "bell.fill")
         
         
-        let secondCoordinator = SecondTabCoodinator()
-        secondCoordinator.start()
-        self.childCoordinators.append(secondCoordinator)
-        let secondViewController = secondCoordinator.rootViewController
-        setup(vc: secondViewController,
-              title: "Second Tab",
-              imageName: "bell",
-              selectedImageName: "bell.fill")
-        
-        
-        self.rootViewController.viewControllers = [firstViewController, secondViewController]
-        
+        //self.rootViewController.viewControllers = [firstViewController, secondViewController]
+        self.rootViewController = UIHostingController(rootView: MainTabView(loginState: loginState))
     }
     
     func setup(vc: UIViewController, title: String, imageName: String, selectedImageName: String) {

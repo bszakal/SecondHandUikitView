@@ -18,33 +18,57 @@ class ApplicationCoordinator: Coordinator {
     let hasSeenOnboarding = CurrentValueSubject<Bool,Never>(false)
     var subscriptions = Set<AnyCancellable>()
     
-    init(window: UIWindow) {
+    let loginState: LoginState
+    //var isLoggedIn: Bool = false
+    
+    init(window: UIWindow, loginState: LoginState) {
         
         self.window = window
-        
+        self.loginState = loginState
     }
     
     
     func start() {
         
-        setupOnboardingValue()
+        //setupOnboardingValue()
         
-        hasSeenOnboarding
-            .removeDuplicates()
-            .sink { [weak self] hasSeen in
-            if hasSeen {
-                let mainCoordinator = MainCoordinator()
-                mainCoordinator.start()
-                self?.childCoordinators = [mainCoordinator]
-                self?.window.rootViewController = mainCoordinator.rootViewController
-            } else if let hasSeenOnboarding = self?.hasSeenOnboarding {
-                let onboardingCoordinator = OnboardingCoordinator(hasSeenOnboarding: hasSeenOnboarding)
-                onboardingCoordinator.start()
-                self?.childCoordinators = [onboardingCoordinator]
-                self?.window.rootViewController = onboardingCoordinator.rootViewController
+//        hasSeenOnboarding
+//            .removeDuplicates()
+//            .sink { [weak self] hasSeen in
+//            if hasSeen {
+//                let mainCoordinator = MainCoordinator()
+//                mainCoordinator.start()
+//                self?.childCoordinators = [mainCoordinator]
+//                self?.window.rootViewController = mainCoordinator.rootViewController
+//            } else if let hasSeenOnboarding = self?.hasSeenOnboarding {
+//                let onboardingCoordinator = OnboardingCoordinator(hasSeenOnboarding: hasSeenOnboarding)
+//                onboardingCoordinator.start()
+//                self?.childCoordinators = [onboardingCoordinator]
+//                self?.window.rootViewController = onboardingCoordinator.rootViewController
+//            }
+//        }
+//        .store(in: &subscriptions)
+        loginState.$isLoggedIn
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoggedIn in
+                    //self?.isLoggedIn = isLoggedIn
+                if let loginState = self?.loginState{
+                    if isLoggedIn{
+                        let mainCoordinator = MainCoordinator(loginState: loginState)
+                        mainCoordinator.start()
+                        self?.childCoordinators = [mainCoordinator]
+                        self?.window.rootViewController = mainCoordinator.rootViewController
+                    } else  {
+                        let onboardingCoordinator = OnboardingCoordinator(loginState: loginState)
+                        onboardingCoordinator.start()
+                        self?.childCoordinators = [onboardingCoordinator]
+                        self?.window.rootViewController = onboardingCoordinator.rootViewController
+                    }
+                }
             }
-        }
-        .store(in: &subscriptions)
+            .store(in: &subscriptions)
+        
+        
     }
     
     func setupOnboardingValue() {
