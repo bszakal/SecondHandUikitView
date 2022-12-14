@@ -110,8 +110,10 @@
 		614770DB294A049D00E988CD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147708A294A049D00E988CD /* Category.swift */; };
 		614770DC294A049D00E988CD /* listOfCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147708C294A049D00E988CD /* listOfCategoriesView.swift */; };
 		614770DD294A049D00E988CD /* CategoriesViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147708D294A049D00E988CD /* CategoriesViewVM.swift */; };
-		61633933294A0174006A10A5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 61633932294A0174006A10A5 /* GoogleSignIn */; };
-		61633935294A0174006A10A5 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 61633934294A0174006A10A5 /* GoogleSignInSwift */; };
+		614770DF294A0B7000E988CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 614770DE294A0B7000E988CD /* GoogleService-Info.plist */; };
+		614770E7294A0E6E00E988CD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 614770E6294A0E6E00E988CD /* GoogleSignIn */; };
+		614770E9294A0E6E00E988CD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 614770E8294A0E6E00E988CD /* GoogleSignInSwift */; };
+		614770EB294A11A500E988CD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EA294A11A500E988CD /* MainTabView.swift */; };
 		61633938294A01A7006A10A5 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633937294A01A7006A10A5 /* FacebookCore */; };
 		6163393A294A01A7006A10A5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 61633939294A01A7006A10A5 /* FacebookLogin */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
@@ -228,6 +230,8 @@
 		6147708A294A049D00E988CD /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		6147708C294A049D00E988CD /* listOfCategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listOfCategoriesView.swift; sourceTree = "<group>"; };
 		6147708D294A049D00E988CD /* CategoriesViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewVM.swift; sourceTree = "<group>"; };
+		614770DE294A0B7000E988CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		614770EA294A11A500E988CD /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,11 +244,11 @@
 				61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */,
 				6163394B294A0280006A10A5 /* FirebaseStorage in Frameworks */,
 				6163393A294A01A7006A10A5 /* FacebookLogin in Frameworks */,
-				61633933294A0174006A10A5 /* GoogleSignIn in Frameworks */,
+				614770E9294A0E6E00E988CD /* GoogleSignInSwift in Frameworks */,
 				61633938294A01A7006A10A5 /* FacebookCore in Frameworks */,
-				61633935294A0174006A10A5 /* GoogleSignInSwift in Frameworks */,
 				61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */,
 				61633949294A0280006A10A5 /* FirebaseFirestoreSwift in Frameworks */,
+				614770E7294A0E6E00E988CD /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +286,7 @@
 		17ECF62F280C438F00D3E87F /* CoordinatorProject */ = {
 			isa = PBXGroup;
 			children = (
+				614770EA294A11A500E988CD /* MainTabView.swift */,
 				61477007294A049C00E988CD /* Announces */,
 				61477084294A049D00E988CD /* Categories */,
 				61477048294A049C00E988CD /* Favourite */,
@@ -301,6 +306,7 @@
 				17ECF639280C438F00D3E87F /* Assets.xcassets */,
 				17ECF63B280C438F00D3E87F /* LaunchScreen.storyboard */,
 				17ECF63E280C438F00D3E87F /* Info.plist */,
+				614770DE294A0B7000E988CD /* GoogleService-Info.plist */,
 			);
 			path = CoordinatorProject;
 			sourceTree = "<group>";
@@ -891,8 +897,6 @@
 			);
 			name = CoordinatorProject;
 			packageProductDependencies = (
-				61633932294A0174006A10A5 /* GoogleSignIn */,
-				61633934294A0174006A10A5 /* GoogleSignInSwift */,
 				61633937294A01A7006A10A5 /* FacebookCore */,
 				61633939294A01A7006A10A5 /* FacebookLogin */,
 				6163393C294A01CE006A10A5 /* NukeUI */,
@@ -901,6 +905,8 @@
 				61633948294A0280006A10A5 /* FirebaseFirestoreSwift */,
 				6163394A294A0280006A10A5 /* FirebaseStorage */,
 				6163394D294A0321006A10A5 /* Swinject */,
+				614770E6294A0E6E00E988CD /* GoogleSignIn */,
+				614770E8294A0E6E00E988CD /* GoogleSignInSwift */,
 			);
 			productName = CoordinatorProject;
 			productReference = 17ECF62D280C438F00D3E87F /* CoordinatorProject.app */;
@@ -931,11 +937,11 @@
 			);
 			mainGroup = 17ECF624280C438F00D3E87F;
 			packageReferences = (
-				61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				6163393B294A01CE006A10A5 /* XCRemoteSwiftPackageReference "NukeUI" */,
 				61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				6163394C294A0321006A10A5 /* XCRemoteSwiftPackageReference "Swinject" */,
+				614770E5294A0E6E00E988CD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 17ECF62E280C438F00D3E87F /* Products */;
 			projectDirPath = "";
@@ -956,6 +962,7 @@
 				17ECF63D280C438F00D3E87F /* LaunchScreen.storyboard in Resources */,
 				175393FB280D5790003030D2 /* main.gif in Resources */,
 				17ECF63A280C438F00D3E87F /* Assets.xcassets in Resources */,
+				614770DF294A0B7000E988CD /* GoogleService-Info.plist in Resources */,
 				17ECF667280C4BD200D3E87F /* SecondViewController.xib in Resources */,
 				175393FD280D57D5003030D2 /* onboarding.gif in Resources */,
 			);
@@ -1056,6 +1063,7 @@
 				614770A6294A049D00E988CD /* StartPageCreateAnnounce.swift in Sources */,
 				61477090294A049D00E988CD /* getAnnounceDI.swift in Sources */,
 				61477094294A049D00E988CD /* AnnouncesListVM.swift in Sources */,
+				614770EB294A11A500E988CD /* MainTabView.swift in Sources */,
 				614770A8294A049D00E988CD /* AppLogger.swift in Sources */,
 				614770B7294A049D00E988CD /* FireBaseFavourite.swift in Sources */,
 				614770CD294A049D00E988CD /* ChatVM.swift in Sources */,
@@ -1275,12 +1283,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+		614770E5294A0E6E00E988CD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 6.2.4;
 			};
 		};
 		61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
@@ -1318,14 +1326,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		61633932294A0174006A10A5 /* GoogleSignIn */ = {
+		614770E6294A0E6E00E988CD /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			package = 614770E5294A0E6E00E988CD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
 		};
-		61633934294A0174006A10A5 /* GoogleSignInSwift */ = {
+		614770E8294A0E6E00E988CD /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 61633931294A0174006A10A5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			package = 614770E5294A0E6E00E988CD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
 		};
 		61633937294A01A7006A10A5 /* FacebookCore */ = {

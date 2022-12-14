@@ -20,9 +20,12 @@ class OnboardingCoordinator: Coordinator {
     }
     
     func start() {
-        let view = OnboardingView { [weak self] in
-            self?.hasSeenOnboarding.send(true)
-        }
-        rootViewController = UIHostingController(rootView: view)
+//        let view = OnboardingView { [weak self] in
+//            self?.hasSeenOnboarding.send(true)
+//        }
+        
+        let loginState = LoginState()
+        loginState.isLoggedIn = true
+        rootViewController = UIHostingController(rootView: MainTabView(loginState: loginState))
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var loginState: LoginState
+    //@EnvironmentObject var loginState: LoginState
     @Environment(\.dismiss) var dismiss
     @StateObject var loginVM = LoginVM()
     
@@ -49,9 +49,9 @@ struct LoginView: View {
             RegisterEmailView()
         }
         
-        .onChange(of: loginState.isLoggedIn) { newValue in
-            if newValue == true { dismiss() }
-        }
+//        .onChange(of: loginState.isLoggedIn) { newValue in
+//            if newValue == true { dismiss() }
+//        }
         
     }
     
