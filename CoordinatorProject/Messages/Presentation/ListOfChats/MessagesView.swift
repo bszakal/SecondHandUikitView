@@ -34,8 +34,8 @@ struct MessagesView: View {
                                             .padding(.trailing)
                                             .foregroundColor(.primary)
                                     }
-                                    .offset(y: self.chatIDs.contains(chat.id) ? 0 : offset )
-                                    .animation(.linear(duration: 0.5), value: self.chatIDs.contains(chat.id))
+                                    //.offset(y: self.chatIDs.contains(chat.id) ? 0 : offset )
+                                    //.animation(.linear(duration: 0.5), value: self.chatIDs.contains(chat.id))
                                     .onAppear{
                                         withAnimation{
                                             self.chatIDs.append(chat.id)

@@ -117,6 +117,7 @@
 		614770ED294A33B500E988CD /* LogginStateUikit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EC294A33B500E988CD /* LogginStateUikit.swift */; };
 		614770EF294B0F4400E988CD /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EE294B0F4400E988CD /* LoginCoordinator.swift */; };
 		61477100294B559E00E988CD /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770FF294B559E00E988CD /* UserCoordinator.swift */; };
+		61477102294B744300E988CD /* MessageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477101294B744300E988CD /* MessageCoordinator.swift */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
 		61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 61633944294A0280006A10A5 /* FirebaseAuth */; };
 		61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633946294A0280006A10A5 /* FirebaseFirestore */; };
@@ -236,6 +237,7 @@
 		614770EC294A33B500E988CD /* LogginStateUikit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginStateUikit.swift; sourceTree = "<group>"; };
 		614770EE294B0F4400E988CD /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		614770FF294B559E00E988CD /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
+		61477101294B744300E988CD /* MessageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageCoordinator.swift; path = CoordinatorProject/Main/MessageCoordinator.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 				17ECF654280C4A6200D3E87F /* MainCoordinator.swift */,
 				614770EE294B0F4400E988CD /* LoginCoordinator.swift */,
 				614770FF294B559E00E988CD /* UserCoordinator.swift */,
+				61477101294B744300E988CD /* MessageCoordinator.swift */,
 				17ECF656280C4A9000D3E87F /* First */,
 				17ECF657280C4A9600D3E87F /* Second */,
 			);
@@ -1004,6 +1007,7 @@
 				614770AD294A049D00E988CD /* FirebaseSignIn.swift in Sources */,
 				614770AC294A049D00E988CD /* fbSignIn.swift in Sources */,
 				614770CB294A049D00E988CD /* MessageDI.swift in Sources */,
+				61477102294B744300E988CD /* MessageCoordinator.swift in Sources */,
 				614770AB294A049D00E988CD /* GoogleSignIn.swift in Sources */,
 				17ECF631280C438F00D3E87F /* AppDelegate.swift in Sources */,
 				614770B1294A049D00E988CD /* SignInWithCorrectProviderView.swift in Sources */,
