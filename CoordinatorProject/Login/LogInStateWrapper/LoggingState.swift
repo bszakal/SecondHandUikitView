@@ -7,9 +7,12 @@
 import Combine
 import SwiftUI
 
+
 class LoginState: ObservableObject {
     
-    @Published var isLoggedIn = false
+    
+    @Published private(set) var isLoggedIn = false
+   
     
     private var cancellable = Set<AnyCancellable>()
     

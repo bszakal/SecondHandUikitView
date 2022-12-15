@@ -46,7 +46,7 @@ struct AnnounceDetailedView: View {
         }
         .toolbar(.hidden, for: .tabBar)
         .toolbar(content: {
-            FavouriteHeartView(isLoggedIn: loginState.isLoggedIn, isAFavourite: announceDetailedVM.isAFavourite) {
+            FavouriteHeartView(isAFavourite: announceDetailedVM.isAFavourite) {
                 if loginState.isLoggedIn{
                     announceDetailedVM.AddOrRemoveFromFavourite(announce: announce)
                 } else {

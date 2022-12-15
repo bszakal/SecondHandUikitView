@@ -16,6 +16,8 @@ class LoggerAssembly: Assembly {
         container.register(FacebookSignInProtocol.self) {_ in return FacebookSign()}.inObjectScope(.container)
         container.register(FireBaseSignInProtocol.self) {_ in return FireBaseSignIn()}.inObjectScope(.container)
         container.register(loggerProtocol.self) { _ in return Logger()}.inObjectScope(.container)
+        
+        container.register(LogginStateUikitProtocol.self) {_ in return LogginStateUikit()}.inObjectScope(.container)
          
     }
 }
