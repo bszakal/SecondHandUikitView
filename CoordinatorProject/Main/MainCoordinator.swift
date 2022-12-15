@@ -4,24 +4,28 @@
 //
 //  Created by Karin Prater on 17.04.22.
 //
-
+import Combine
 import Foundation
 import UIKit
 import SwiftUI
 
+
 class MainCoordinator: Coordinator {
     
-    //var rootViewController: UITabBarController
-    var rootViewController = UIViewController()
-    let loginState: LoginState
+    var rootViewController: UITabBarController
+    var selectedTab = 0
+    //var rootViewController = UIViewController()
+    @Inject var loginState: LogginStateUikitProtocol!
     
     var childCoordinators = [Coordinator]()
     
-    init(loginState: LoginState) {
-//        self.rootViewController = UITabBarController()
-//        rootViewController.tabBar.isTranslucent = true
-//        rootViewController.tabBar.backgroundColor = .lightGray
-        self.loginState = loginState
+    var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        self.rootViewController = UITabBarController()
+        rootViewController.tabBar.isTranslucent = true
+        rootViewController.tabBar.backgroundColor = .lightGray
+ 
     }
     
     func start() {
@@ -47,13 +51,68 @@ class MainCoordinator: Coordinator {
         
         
         //self.rootViewController.viewControllers = [firstViewController, secondViewController]
-        self.rootViewController = UIHostingController(rootView: MainTabView(loginState: loginState))
+        //self.rootViewController = UIHostingController(rootView: MainTabView(loginState: loginState))
+        
+        
+        loginState.isLoggedIn
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] newValue in
+                self?.setupTabBar(isLoggedIn: newValue)
+            }
+            .store(in: &cancellables)
+        
     }
     
-    func setup(vc: UIViewController, title: String, imageName: String, selectedImageName: String) {
-        let defaultImage = UIImage(systemName: imageName)
-        let selectedImage = UIImage(systemName: selectedImageName)
-        let tabBarItem = UITabBarItem(title: title, image: defaultImage, selectedImage: selectedImage)
-        vc.tabBarItem = tabBarItem
+    func setupTabBar(isLoggedIn: Bool) {
+        
+        var arrayVC = [UIViewController]()
+        
+        let vcAnnounce = UIHostingController(rootView: HomePageView())
+        vcAnnounce.tabBarItem = UITabBarItem(title: "Announces", image: UIImage(systemName: "list.bullet.rectangle.fill"), tag: 0)
+        
+        arrayVC.append(vcAnnounce)
+        
+        
+        if isLoggedIn {
+
+            let vcFavourite = UIHostingController(rootView: FavouriteView())
+            vcFavourite.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart.fill"), tag: 1)
+            arrayVC.append(vcFavourite)
+            
+            let vcPublish = UIHostingController(rootView: StartPageCreateAnnounce())
+            vcPublish.tabBarItem = UITabBarItem(title: "Publish", image: UIImage(systemName: "plus.square.fill"), tag: 2)
+            arrayVC.append(vcPublish)
+            
+            let vcMessage = UIHostingController(rootView: MessagesView())
+            vcMessage.tabBarItem = UITabBarItem(title: "Message", image: UIImage(systemName: "envelope"), tag: 3)
+            arrayVC.append(vcMessage)
+            
+            let vcAccount = UIHostingController(rootView: MyAccountView())
+            vcAccount.tabBarItem = UITabBarItem(title: "Account", image: UIImage(systemName: "person.crop.circle.fill"), tag: 4)
+            arrayVC.append(vcAccount)
+            
+        } else {
+
+            let vcFavourite = UIHostingController(rootView: LoginRestrictedView(title: "Favourites"))
+            vcFavourite.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart.fill"), tag: 1)
+            arrayVC.append(vcFavourite)
+            
+            let vcPublish = UIHostingController(rootView: LoginRestrictedView(title: "Publish"))
+            vcPublish.tabBarItem = UITabBarItem(title: "Publish", image: UIImage(systemName: "plus.square.fill"), tag: 2)
+            arrayVC.append(vcPublish)
+            
+            let vcMessage = UIHostingController(rootView: LoginRestrictedView(title: "Messages"))
+            vcMessage.tabBarItem = UITabBarItem(title: "Message", image: UIImage(systemName: "envelope"), tag: 3)
+            arrayVC.append(vcMessage)
+            
+            let vcAccount = UIHostingController(rootView: LoginRestrictedView(title: "My Account"))
+            vcAccount.tabBarItem = UITabBarItem(title: "Account", image: UIImage(systemName: "person.crop.circle.fill"), tag: 4)
+            arrayVC.append(vcAccount)
+        }
+        
+        self.rootViewController.viewControllers = arrayVC
+        
     }
+
 }
+

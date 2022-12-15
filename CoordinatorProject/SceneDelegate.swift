@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var applicationCoordintor: ApplicationCoordinator?
     
     let loginState = LoginState()
-
+    
+    @Inject var loginStateUikit: LogginStateUikitProtocol
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {

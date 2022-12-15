@@ -114,6 +114,7 @@
 		614770E7294A0E6E00E988CD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 614770E6294A0E6E00E988CD /* GoogleSignIn */; };
 		614770E9294A0E6E00E988CD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 614770E8294A0E6E00E988CD /* GoogleSignInSwift */; };
 		614770EB294A11A500E988CD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EA294A11A500E988CD /* MainTabView.swift */; };
+		614770ED294A33B500E988CD /* LogginStateUikit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EC294A33B500E988CD /* LogginStateUikit.swift */; };
 		61633938294A01A7006A10A5 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633937294A01A7006A10A5 /* FacebookCore */; };
 		6163393A294A01A7006A10A5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 61633939294A01A7006A10A5 /* FacebookLogin */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
@@ -232,6 +233,7 @@
 		6147708D294A049D00E988CD /* CategoriesViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewVM.swift; sourceTree = "<group>"; };
 		614770DE294A0B7000E988CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		614770EA294A11A500E988CD /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		614770EC294A33B500E988CD /* LogginStateUikit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginStateUikit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +419,6 @@
 			children = (
 				61477010294A049C00E988CD /* Announces */,
 				61477017294A049C00E988CD /* Filters */,
-				6147701A294A049C00E988CD /* HomePageView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -425,11 +426,12 @@
 		61477010294A049C00E988CD /* Announces */ = {
 			isa = PBXGroup;
 			children = (
-				61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */,
+				6147701A294A049C00E988CD /* HomePageView.swift */,
 				61477012294A049C00E988CD /* AnnounceView.swift */,
-				61477013294A049C00E988CD /* Components */,
 				61477015294A049C00E988CD /* AnnouncesListVM.swift */,
 				61477016294A049C00E988CD /* AnnounceDetailedView.swift */,
+				61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */,
+				61477013294A049C00E988CD /* Components */,
 			);
 			path = Announces;
 			sourceTree = "<group>";
@@ -560,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				61477038294A049C00E988CD /* LoggingState.swift */,
+				614770EC294A33B500E988CD /* LogginStateUikit.swift */,
 			);
 			path = LogInStateWrapper;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				614770C0294A049D00E988CD /* UserDI.swift in Sources */,
 				614770A3294A049D00E988CD /* CategorySelection.swift in Sources */,
 				614770D7294A049D00E988CD /* ImagePicker.swift in Sources */,
+				614770ED294A33B500E988CD /* LogginStateUikit.swift in Sources */,
 				614770BB294A049D00E988CD /* FavouriteVM.swift in Sources */,
 				614770C6294A049D00E988CD /* MyAnnounceVM.swift in Sources */,
 				17ECF65D280C4B4C00D3E87F /* FirstViewController.swift in Sources */,

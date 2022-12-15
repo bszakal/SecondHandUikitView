@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     
-    @ObservedObject var loginState:LoginState
+    @ObservedObject var loginState: LoginState
     @State private var tabSelection = 0
     
     var body: some View {

@@ -13,12 +13,6 @@ class OnboardingCoordinator: Coordinator {
     
     var rootViewController = UIViewController()
     
-//    var hasSeenOnboarding: CurrentValueSubject<Bool, Never>
-//
-//    init(hasSeenOnboarding: CurrentValueSubject<Bool, Never>) {
-//        self.hasSeenOnboarding = hasSeenOnboarding
-//    }
-    
     let loginState: LoginState
     
     init(loginState: LoginState){
@@ -26,12 +20,6 @@ class OnboardingCoordinator: Coordinator {
     }
     
     func start() {
-//        let view = OnboardingView { [weak self] in
-//            self?.hasSeenOnboarding.send(true)
-//        }
-        
-//        let loginState = LoginState()
-//        loginState.isLoggedIn = true
         rootViewController = UIHostingController(rootView: LoginView())
     }
 }

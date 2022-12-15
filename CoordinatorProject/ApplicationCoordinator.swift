@@ -15,11 +15,10 @@ class ApplicationCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     
-    let hasSeenOnboarding = CurrentValueSubject<Bool,Never>(false)
     var subscriptions = Set<AnyCancellable>()
     
     let loginState: LoginState
-    //var isLoggedIn: Bool = false
+    @Inject var loginStateUikit: LogginStateUikitProtocol
     
     init(window: UIWindow, loginState: LoginState) {
         
@@ -30,31 +29,15 @@ class ApplicationCoordinator: Coordinator {
     
     func start() {
         
-        //setupOnboardingValue()
-        
-//        hasSeenOnboarding
-//            .removeDuplicates()
-//            .sink { [weak self] hasSeen in
-//            if hasSeen {
-//                let mainCoordinator = MainCoordinator()
-//                mainCoordinator.start()
-//                self?.childCoordinators = [mainCoordinator]
-//                self?.window.rootViewController = mainCoordinator.rootViewController
-//            } else if let hasSeenOnboarding = self?.hasSeenOnboarding {
-//                let onboardingCoordinator = OnboardingCoordinator(hasSeenOnboarding: hasSeenOnboarding)
-//                onboardingCoordinator.start()
-//                self?.childCoordinators = [onboardingCoordinator]
-//                self?.window.rootViewController = onboardingCoordinator.rootViewController
-//            }
-//        }
-//        .store(in: &subscriptions)
-        loginState.$isLoggedIn
+        loginStateUikit.isLoggedIn
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoggedIn in
                     //self?.isLoggedIn = isLoggedIn
                 if let loginState = self?.loginState{
-                    if isLoggedIn{
-                        let mainCoordinator = MainCoordinator(loginState: loginState)
+                    
+                    //change to isLoggedIn
+                    if true{
+                        let mainCoordinator = MainCoordinator()
                         mainCoordinator.start()
                         self?.childCoordinators = [mainCoordinator]
                         self?.window.rootViewController = mainCoordinator.rootViewController
@@ -69,24 +52,5 @@ class ApplicationCoordinator: Coordinator {
             .store(in: &subscriptions)
         
         
-    }
-    
-    func setupOnboardingValue() {
-        
-        // storing and loading of state/data
-        
-        let key = "hasSeenOnboarding"
-        let value = UserDefaults.standard.bool(forKey: key) //default of false
-        hasSeenOnboarding.send(value)
-        
-        hasSeenOnboarding
-            .filter({ $0 })
-            .sink { (value) in
-                UserDefaults.standard.setValue(value, forKey: key)
-            }
-            .store(in: &subscriptions)
-        
-    }
-    
-    
+    }   
 }
