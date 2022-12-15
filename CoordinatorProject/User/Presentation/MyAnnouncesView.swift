@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct MyAnnouncesView: View {
+    
     @StateObject var myAnnouncesVm = MyAnnouncesVM()
+    let DetailViewRequested: ()-> Void
     
     var body: some View {
         
 
             List{
                 ForEach(myAnnouncesVm.myAnnounces) {announce in
-                    NavigationLink {
-                        Text("To do..")
+                    Button {
+                        DetailViewRequested()
                     } label: {
                         myAnnounceSingleView(announce: announce)
                     }
@@ -57,8 +59,8 @@ struct myAnnounceSingleView: View {
 
 struct MyAnnouncesView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack{
-            MyAnnouncesView()
-        }
+
+            MyAnnouncesView{}
+        
     }
 }

@@ -11,17 +11,28 @@ struct MyAccountView: View {
 
     @StateObject var myAccountVM = MyAccountVM()
     
+    let userProfileRequested: () -> Void
+    let favouritViewRequested: () ->Void
+    let myAnnouncesViewRequested:() -> Void
+    
     var body: some View {
         
-            NavigationStack{
+            
                 List{
                     Section {
-                        NavigationLink {
-                            UserProfileView()
+                        
+                        Button {
+                            userProfileRequested()
                         } label: {
-                            itemListViewMyAccount(imageName: "person.crop.circle.fill",
-                                                  text: "Edit profile")
+                            HStack{
+                                itemListViewMyAccount(imageName: "person.crop.circle.fill",
+                                                      text: "Edit profile")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
                         }
+                            
+                        
                     } header: {
                         Text("Profile")
                     }
@@ -29,18 +40,26 @@ struct MyAccountView: View {
                     //
                     
                     Section{
-                        NavigationLink {
-                            FavouriteView()
+                        Button {
+                            favouritViewRequested()
                         } label: {
-                            itemListViewMyAccount(imageName: "heart.fill", text: "Favourites")
+                            HStack{
+                                itemListViewMyAccount(imageName: "heart.fill", text: "Favourites")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
                         }
                         .listSectionSeparator(.hidden)
                         
-                        NavigationLink {
-                            MyAnnouncesView()
+                        Button {
+                            myAnnouncesViewRequested()
                         } label: {
-                            itemListViewMyAccount(imageName: "list.bullet.rectangle.fill",
-                                                  text: "My announces")
+                            HStack{
+                                itemListViewMyAccount(imageName: "list.bullet.rectangle.fill",
+                                                      text: "My announces")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
                         }
                         .listSectionSeparator(.hidden)
                         
@@ -62,7 +81,7 @@ struct MyAccountView: View {
                 .toolbarBackground(Color.gray, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarColorScheme(.dark, for: .navigationBar)
-            }
+            
     }
 }
 struct itemListViewMyAccount: View {
@@ -80,6 +99,6 @@ struct itemListViewMyAccount: View {
 
 struct MyAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        MyAccountView()
+        MyAccountView(userProfileRequested: {}, favouritViewRequested: {}, myAnnouncesViewRequested: {})
     }
 }

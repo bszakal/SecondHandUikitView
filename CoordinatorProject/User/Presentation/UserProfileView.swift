@@ -17,6 +17,7 @@ struct UserProfileView: View {
     @State private var showCamera = false
     @State private var showPictureConfirmationDialogue = false
     @State private var newPhotoUI: UIImage?
+    
     private var newPhoto: SwiftUI.Image? {
         if let uiImg = newPhotoUI {
             return Image(uiImage: uiImg)
