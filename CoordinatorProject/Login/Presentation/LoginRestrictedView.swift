@@ -12,6 +12,8 @@ struct LoginRestrictedView: View {
     @State private var showLoginPage = false
     
     let title: String
+    let showLoginPageButtonPressed: () ->Void
+    
     var body: some View {
         VStack(alignment:.leading, spacing: 30){
             HStack{
@@ -27,7 +29,7 @@ struct LoginRestrictedView: View {
                 .padding(.horizontal, 25)
             
             Button {
-                showLoginPage = true
+                showLoginPageButtonPressed()
             } label: {
                 Text("Log in")
                     .modifier(buttonModifierCreateAnnouce())
@@ -38,15 +40,12 @@ struct LoginRestrictedView: View {
                 Spacer()
         }
         .padding(.top, 70)
-        
-        .sheet(isPresented: $showLoginPage) {
-            LoginView()
-        }
+    
     }
 }
 
 struct LoginRestrictedView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginRestrictedView(title: "Publish")
+        LoginRestrictedView(title: "Publish"){}
     }
 }

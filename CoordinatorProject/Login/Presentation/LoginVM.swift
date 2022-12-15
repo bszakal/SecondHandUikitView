@@ -22,15 +22,16 @@ import SwiftUI
     @Published private(set) var emailSignInErrornotification = ""
     
     func SignInFacebook() {
-        logger.SignInFederated(provider: Logger.FederatedProvider.Facebook) { email, provider, err in
-            if let provider = provider {
-                if provider == "google.com" {
-                    self.correctProvider = .Google
-                } else if provider == "facebook.com" {
-                    self.correctProvider = .facebook
-                }
-            }
-        } 
+//        logger.SignInFederated(provider: Logger.FederatedProvider.Facebook) { email, provider, err in
+//            if let provider = provider {
+//                if provider == "google.com" {
+//                    self.correctProvider = .Google
+//                } else if provider == "facebook.com" {
+//                    self.correctProvider = .facebook
+//                }
+//            }
+//        }
+        correctProvider = .Google
     }
     
     func SignInGoogle() {

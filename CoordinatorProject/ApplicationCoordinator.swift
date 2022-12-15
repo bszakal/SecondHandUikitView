@@ -42,10 +42,10 @@ class ApplicationCoordinator: Coordinator {
                         self?.childCoordinators = [mainCoordinator]
                         self?.window.rootViewController = mainCoordinator.rootViewController
                     } else  {
-                        let onboardingCoordinator = OnboardingCoordinator(loginState: loginState)
-                        onboardingCoordinator.start()
-                        self?.childCoordinators = [onboardingCoordinator]
-                        self?.window.rootViewController = onboardingCoordinator.rootViewController
+//                        let onboardingCoordinator = OnboardingCoordinator(loginState: loginState)
+//                        onboardingCoordinator.start()
+//                        self?.childCoordinators = [onboardingCoordinator]
+//                        self?.window.rootViewController = onboardingCoordinator.rootViewController
                     }
                 }
             }

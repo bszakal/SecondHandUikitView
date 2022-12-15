@@ -40,7 +40,7 @@ struct SingleAnnounceView: View {
             }
         }
         .sheet(isPresented: $showLoginView) {
-            LoginView()
+            LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in})
         }
     }
  
