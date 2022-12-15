@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -115,8 +115,7 @@
 		614770E9294A0E6E00E988CD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 614770E8294A0E6E00E988CD /* GoogleSignInSwift */; };
 		614770EB294A11A500E988CD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EA294A11A500E988CD /* MainTabView.swift */; };
 		614770ED294A33B500E988CD /* LogginStateUikit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EC294A33B500E988CD /* LogginStateUikit.swift */; };
-		61633938294A01A7006A10A5 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633937294A01A7006A10A5 /* FacebookCore */; };
-		6163393A294A01A7006A10A5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 61633939294A01A7006A10A5 /* FacebookLogin */; };
+		614770EF294B0F4400E988CD /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EE294B0F4400E988CD /* LoginCoordinator.swift */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
 		61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 61633944294A0280006A10A5 /* FirebaseAuth */; };
 		61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633946294A0280006A10A5 /* FirebaseFirestore */; };
@@ -234,6 +233,7 @@
 		614770DE294A0B7000E988CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		614770EA294A11A500E988CD /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		614770EC294A33B500E988CD /* LogginStateUikit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginStateUikit.swift; sourceTree = "<group>"; };
+		614770EE294B0F4400E988CD /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,9 +245,7 @@
 				6163394E294A0321006A10A5 /* Swinject in Frameworks */,
 				61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */,
 				6163394B294A0280006A10A5 /* FirebaseStorage in Frameworks */,
-				6163393A294A01A7006A10A5 /* FacebookLogin in Frameworks */,
 				614770E9294A0E6E00E988CD /* GoogleSignInSwift in Frameworks */,
-				61633938294A01A7006A10A5 /* FacebookCore in Frameworks */,
 				61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */,
 				61633949294A0280006A10A5 /* FirebaseFirestoreSwift in Frameworks */,
 				614770E7294A0E6E00E988CD /* GoogleSignIn in Frameworks */,
@@ -334,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				17ECF654280C4A6200D3E87F /* MainCoordinator.swift */,
+				614770EE294B0F4400E988CD /* LoginCoordinator.swift */,
 				17ECF656280C4A9000D3E87F /* First */,
 				17ECF657280C4A9600D3E87F /* Second */,
 			);
@@ -900,8 +899,6 @@
 			);
 			name = CoordinatorProject;
 			packageProductDependencies = (
-				61633937294A01A7006A10A5 /* FacebookCore */,
-				61633939294A01A7006A10A5 /* FacebookLogin */,
 				6163393C294A01CE006A10A5 /* NukeUI */,
 				61633944294A0280006A10A5 /* FirebaseAuth */,
 				61633946294A0280006A10A5 /* FirebaseFirestore */,
@@ -931,7 +928,7 @@
 				};
 			};
 			buildConfigurationList = 17ECF628280C438F00D3E87F /* Build configuration list for PBXProject "CoordinatorProject" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -940,7 +937,6 @@
 			);
 			mainGroup = 17ECF624280C438F00D3E87F;
 			packageReferences = (
-				61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				6163393B294A01CE006A10A5 /* XCRemoteSwiftPackageReference "NukeUI" */,
 				61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				6163394C294A0321006A10A5 /* XCRemoteSwiftPackageReference "Swinject" */,
@@ -993,6 +989,7 @@
 				61477092294A049D00E988CD /* AnnounceView.swift in Sources */,
 				61477097294A049D00E988CD /* SearchFilterVM.swift in Sources */,
 				17ECF635280C438F00D3E87F /* ViewController.swift in Sources */,
+				614770EF294B0F4400E988CD /* LoginCoordinator.swift in Sources */,
 				614770D9294A049D00E988CD /* FirebaseCategories.swift in Sources */,
 				61477095294A049D00E988CD /* AnnounceDetailedView.swift in Sources */,
 				614770BF294A049D00E988CD /* WriteUserProfile.swift in Sources */,
@@ -1295,14 +1292,6 @@
 				version = 6.2.4;
 			};
 		};
-		61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		6163393B294A01CE006A10A5 /* XCRemoteSwiftPackageReference "NukeUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/NukeUI";
@@ -1339,16 +1328,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 614770E5294A0E6E00E988CD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
-		};
-		61633937294A01A7006A10A5 /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		61633939294A01A7006A10A5 /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61633936294A01A7006A10A5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
 		};
 		6163393C294A01CE006A10A5 /* NukeUI */ = {
 			isa = XCSwiftPackageProductDependency;

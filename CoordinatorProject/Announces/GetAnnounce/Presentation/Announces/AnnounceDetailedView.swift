@@ -64,7 +64,7 @@ struct AnnounceDetailedView: View {
             
         }
         .sheet(isPresented: $showloginView) {
-            LoginView()
+            LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in})
         }
     }
     
@@ -162,7 +162,7 @@ struct AnnounceDetailedView: View {
                     if loginState.isLoggedIn{
                         ChatView(announceId: announce.id ?? "", otherUser: announceDetailedVM.userProfileForAnnounce, user: announceDetailedVM.currentUserProfile)
                     } else {
-                        LoginView().navigationBarBackButtonHidden()
+                        LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in}).navigationBarBackButtonHidden()
                     }
                 } label: {
                     bottomBarButtonLabel(text: "Message")

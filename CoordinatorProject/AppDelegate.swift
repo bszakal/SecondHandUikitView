@@ -4,9 +4,11 @@
 //
 //  Created by Karin Prater on 17.04.22.
 //
+//import FacebookCore
 import GoogleSignIn
 import Firebase
 import UIKit
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
+    
+    
     func application(
       _ app: UIApplication,
       open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]
@@ -28,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       var handled: Bool
 
       handled = GIDSignIn.sharedInstance.handle(url)
+        
+                
       if handled {
         return true
       }

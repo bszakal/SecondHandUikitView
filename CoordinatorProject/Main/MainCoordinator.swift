@@ -93,25 +93,39 @@ class MainCoordinator: Coordinator {
             
         } else {
 
-            let vcFavourite = UIHostingController(rootView: LoginRestrictedView(title: "Favourites"))
+            let vcFavourite = UIHostingController(rootView: LoginRestrictedView(title: "Favourites"){
+                self.showLoginView()
+            })
             vcFavourite.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart.fill"), tag: 1)
             arrayVC.append(vcFavourite)
             
-            let vcPublish = UIHostingController(rootView: LoginRestrictedView(title: "Publish"))
+            let vcPublish = UIHostingController(rootView: LoginRestrictedView(title: "Publish"){
+                self.showLoginView()
+            })
             vcPublish.tabBarItem = UITabBarItem(title: "Publish", image: UIImage(systemName: "plus.square.fill"), tag: 2)
             arrayVC.append(vcPublish)
             
-            let vcMessage = UIHostingController(rootView: LoginRestrictedView(title: "Messages"))
+            let vcMessage = UIHostingController(rootView: LoginRestrictedView(title: "Messages"){
+                self.showLoginView()
+            })
             vcMessage.tabBarItem = UITabBarItem(title: "Message", image: UIImage(systemName: "envelope"), tag: 3)
             arrayVC.append(vcMessage)
             
-            let vcAccount = UIHostingController(rootView: LoginRestrictedView(title: "My Account"))
+            let vcAccount = UIHostingController(rootView: LoginRestrictedView(title: "My Account"){
+                self.showLoginView()
+            })
             vcAccount.tabBarItem = UITabBarItem(title: "Account", image: UIImage(systemName: "person.crop.circle.fill"), tag: 4)
             arrayVC.append(vcAccount)
         }
         
         self.rootViewController.viewControllers = arrayVC
         
+    }
+    
+    func showLoginView(){
+        let loginCoordinator = LoginCoordinator()
+        loginCoordinator.start()
+        rootViewController.present(loginCoordinator.rootViewController, animated: true)
     }
 
 }

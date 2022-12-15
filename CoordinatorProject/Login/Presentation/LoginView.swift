@@ -11,7 +11,6 @@ import SwiftUI
 
 struct LoginView: View {
     
-    //@EnvironmentObject var loginState: LoginState
     @Environment(\.dismiss) var dismiss
     @StateObject var loginVM = LoginVM()
     
@@ -20,6 +19,9 @@ struct LoginView: View {
     @State private var showPassword = false
     
     @State private var showRegisterView = false
+    
+    let registerButtonPressed: ()->Void
+    let correctProviderNotNil: (LoginVM.CorrectProvider)->Void
    
     var body: some View {
         
@@ -40,18 +42,15 @@ struct LoginView: View {
         }
         .ignoresSafeArea(.keyboard, edges:.bottom)
         
-        .sheet(item: $loginVM.correctProvider) { provider in
-            SignInWithCorrectProviderView(correctProvider: provider)
-                .presentationDetents([.medium])
-        }
+        .onChange(of: loginVM.correctProvider, perform: { correctProvider in
+            if let provider = correctProvider{
+                correctProviderNotNil(provider)
+            }
+        })
         
         .sheet(isPresented: $showRegisterView) {
-            RegisterEmailView()
+            //RegisterEmailView()
         }
-        
-//        .onChange(of: loginState.isLoggedIn) { newValue in
-//            if newValue == true { dismiss() }
-//        }
         
     }
     
@@ -88,7 +87,8 @@ struct LoginView: View {
     
     var emailRegisterButton: some View {
         Button(action: {
-            showRegisterView = true
+            //showRegisterView = true
+            registerButtonPressed()
         }, label: {
             Text("Register")
                 .fontWeight(.bold)

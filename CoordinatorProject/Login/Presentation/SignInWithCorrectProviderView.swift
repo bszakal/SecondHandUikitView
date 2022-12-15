@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SignInWithCorrectProviderView: View {
     
-    @EnvironmentObject var logInState: LoginState
     @Environment(\.dismiss) var dismiss
     @StateObject var signInCorrectProviderVM = SignInWithCorrectProvider()
     var correctProvider: LoginVM.CorrectProvider
@@ -60,9 +59,6 @@ struct SignInWithCorrectProviderView: View {
         .foregroundColor(.primary)
         .padding(.horizontal)
         
-        .onChange(of: logInState.isLoggedIn) { newValue in
-            if newValue == true { dismiss() }
-        }
     }
     
     
