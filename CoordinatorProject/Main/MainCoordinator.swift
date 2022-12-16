@@ -80,9 +80,11 @@ class MainCoordinator: Coordinator {
             vcFavourite.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart.fill"), tag: 1)
             arrayVC.append(vcFavourite)
             
-            let vcPublish = UIHostingController(rootView: StartPageCreateAnnounce())
-            vcPublish.tabBarItem = UITabBarItem(title: "Publish", image: UIImage(systemName: "plus.square.fill"), tag: 2)
-            arrayVC.append(vcPublish)
+            let createAnnounceCoordinator = CreateAnnounceCoordinator()
+            createAnnounceCoordinator.start()
+            createAnnounceCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Publish", image: UIImage(systemName: "plus.square.fill"), tag: 2)
+            let vcCreateAnnounce = createAnnounceCoordinator.rootViewController as UIViewController
+            arrayVC.append(vcCreateAnnounce)
             
             let messageCoordinator = MessageCoordinator()
             messageCoordinator.start()

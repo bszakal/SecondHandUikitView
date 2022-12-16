@@ -118,6 +118,7 @@
 		614770EF294B0F4400E988CD /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770EE294B0F4400E988CD /* LoginCoordinator.swift */; };
 		61477100294B559E00E988CD /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770FF294B559E00E988CD /* UserCoordinator.swift */; };
 		61477102294B744300E988CD /* MessageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477101294B744300E988CD /* MessageCoordinator.swift */; };
+		61477104294CADAB00E988CD /* CreateAnnounceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477103294CADAB00E988CD /* CreateAnnounceCoordinator.swift */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
 		61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 61633944294A0280006A10A5 /* FirebaseAuth */; };
 		61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633946294A0280006A10A5 /* FirebaseFirestore */; };
@@ -238,6 +239,7 @@
 		614770EE294B0F4400E988CD /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		614770FF294B559E00E988CD /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 		61477101294B744300E988CD /* MessageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageCoordinator.swift; path = CoordinatorProject/Main/MessageCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		61477103294CADAB00E988CD /* CreateAnnounceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnounceCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 				614770EE294B0F4400E988CD /* LoginCoordinator.swift */,
 				614770FF294B559E00E988CD /* UserCoordinator.swift */,
 				61477101294B744300E988CD /* MessageCoordinator.swift */,
+				61477103294CADAB00E988CD /* CreateAnnounceCoordinator.swift */,
 				17ECF656280C4A9000D3E87F /* First */,
 				17ECF657280C4A9600D3E87F /* Second */,
 			);
@@ -496,11 +499,11 @@
 		61477022294A049C00E988CD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6147702F294A049C00E988CD /* StartPageCreateAnnounce.swift */,
+				6147702E294A049C00E988CD /* CreateAnnounceStartView.swift */,
 				61477023294A049C00E988CD /* CreateAnnounceVM.swift */,
 				61477024294A049C00E988CD /* Components */,
 				6147702C294A049C00E988CD /* TestToIgnore */,
-				6147702E294A049C00E988CD /* CreateAnnounceStartView.swift */,
-				6147702F294A049C00E988CD /* StartPageCreateAnnounce.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				6147709A294A049D00E988CD /* CreateAnnounceDI.swift in Sources */,
 				614770BD294A049D00E988CD /* FirebaseUserProfile.swift in Sources */,
 				614770DC294A049D00E988CD /* listOfCategoriesView.swift in Sources */,
+				61477104294CADAB00E988CD /* CreateAnnounceCoordinator.swift in Sources */,
 				614770B2294A049D00E988CD /* EmailSignInView.swift in Sources */,
 				614770CC294A049D00E988CD /* Message.swift in Sources */,
 				614770B3294A049D00E988CD /* FederatedSignInView.swift in Sources */,
