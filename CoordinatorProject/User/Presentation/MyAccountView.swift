@@ -14,6 +14,7 @@ struct MyAccountView: View {
     let userProfileRequested: () -> Void
     let favouritViewRequested: () ->Void
     let myAnnouncesViewRequested:() -> Void
+
     
     var body: some View {
         

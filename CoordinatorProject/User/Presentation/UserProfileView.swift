@@ -18,6 +18,8 @@ struct UserProfileView: View {
     @State private var showPictureConfirmationDialogue = false
     @State private var newPhotoUI: UIImage?
     
+    let completionHandler: ()-> Void
+    
     private var newPhoto: SwiftUI.Image? {
         if let uiImg = newPhotoUI {
             return Image(uiImage: uiImg)
@@ -46,6 +48,9 @@ struct UserProfileView: View {
         .toolbar(content: {saveButton})
         
         .onAppear{ userProfileVM.getUserProfileOrPrepareNewOne() }
+        .onDisappear(perform: {
+            completionHandler()
+        })
         
         .sheet(isPresented: $showPhotoLibrary, content: {
             ImagePicker {img in self.newPhotoUI = img}
@@ -171,7 +176,7 @@ struct textfieldNamesView: View {
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            UserProfileView()
+            UserProfileView{}
         }
     }
 }

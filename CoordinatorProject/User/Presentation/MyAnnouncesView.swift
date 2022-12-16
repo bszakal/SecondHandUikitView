@@ -11,6 +11,7 @@ struct MyAnnouncesView: View {
     
     @StateObject var myAnnouncesVm = MyAnnouncesVM()
     let DetailViewRequested: ()-> Void
+    let completionHandler:()->Void
     
     var body: some View {
         
@@ -32,6 +33,9 @@ struct MyAnnouncesView: View {
 
         .navigationTitle("My announces")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear {
+            completionHandler()
+        }
         
     }
 }
@@ -60,7 +64,7 @@ struct myAnnounceSingleView: View {
 struct MyAnnouncesView_Previews: PreviewProvider {
     static var previews: some View {
 
-            MyAnnouncesView{}
+            MyAnnouncesView(DetailViewRequested: {}, completionHandler: {})
         
     }
 }

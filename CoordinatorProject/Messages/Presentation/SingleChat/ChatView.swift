@@ -16,12 +16,14 @@ struct ChatView: View {
     @State private var id = ""
     @State private var newMessage = ""
     
+    let completionHandler: ()-> Void
 
-    init(announceId: String, otherUser: UserProfile, user: UserProfile) {
+    init(announceId: String, otherUser: UserProfile, user: UserProfile, completionHandler: @escaping ()->Void ) {
   
         self.otherUser = otherUser
         self.user = user
         self._chatVM = StateObject(wrappedValue: ChatVM(announceId: announceId, announceUserId: otherUser.id))
+        self.completionHandler = completionHandler
     }
     
     var idMostRecent: String {
@@ -87,7 +89,9 @@ struct ChatView: View {
         .onAppear{
             chatVM.suscribeChatLiveData()
         }
-        .toolbar(.hidden, for: .tabBar)
+        .onDisappear(perform: {
+            completionHandler()
+        })
         .toolbar{
             HStack{
                 photoView2(imageUrlsString: [otherUser.profilePictureUrlStr])
@@ -178,8 +182,8 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack{
-            ChatView(announceId:Announce.example.id ?? "", otherUser: UserProfile.example, user: UserProfile.example)
-        }
+       
+        ChatView(announceId:Announce.example.id ?? "", otherUser: UserProfile.example, user: UserProfile.example){}
+        
     }
 }

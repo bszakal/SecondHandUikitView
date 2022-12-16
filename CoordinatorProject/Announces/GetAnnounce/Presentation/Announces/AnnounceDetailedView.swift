@@ -160,7 +160,7 @@ struct AnnounceDetailedView: View {
    
                 NavigationLink {
                     if loginState.isLoggedIn{
-                        ChatView(announceId: announce.id ?? "", otherUser: announceDetailedVM.userProfileForAnnounce, user: announceDetailedVM.currentUserProfile)
+//                        ChatView(announceId: announce.id ?? "", otherUser: announceDetailedVM.userProfileForAnnounce, user: announceDetailedVM.currentUserProfile)
                     } else {
                         LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in}).navigationBarBackButtonHidden()
                     }
