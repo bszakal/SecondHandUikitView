@@ -26,8 +26,10 @@ class UserCoordinator: Coordinator{
     }
     
     func showUserProfileView(){
-        let userProfileVc = UIHostingController(rootView: UserProfileView())
-        //rootViewController.tabBarController?.tabBar.isHidden = true
+        let userProfileVc = UIHostingController(rootView: UserProfileView{
+            self.rootViewController.tabBarController?.tabBar.isHidden = false
+        })
+        rootViewController.tabBarController?.tabBar.isHidden = true
         rootViewController.pushViewController(userProfileVc, animated: true)
     }
     
@@ -37,9 +39,12 @@ class UserCoordinator: Coordinator{
     }
     
     func showMyAnnounces(){
-        let myAnnouncesVC = UIHostingController(rootView: MyAnnouncesView{
+        let myAnnouncesVC = UIHostingController(rootView: MyAnnouncesView(DetailViewRequested: {
             self.showAnnounceDetailView()
-        })
+        }, completionHandler: {
+            self.rootViewController.tabBarController?.tabBar.isHidden = false
+        }))
+        rootViewController.tabBarController?.tabBar.isHidden = true
         rootViewController.pushViewController(myAnnouncesVC, animated: true)
     }
     

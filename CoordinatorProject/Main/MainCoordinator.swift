@@ -23,9 +23,9 @@ class MainCoordinator: Coordinator {
     
     init() {
         self.rootViewController = UITabBarController()
-        rootViewController.tabBar.isTranslucent = false
-        rootViewController.tabBar.isOpaque = true
-        rootViewController.tabBar.backgroundColor = .lightGray
+//        rootViewController.tabBar.isTranslucent = false
+//        rootViewController.tabBar.isOpaque = true
+//        rootViewController.tabBar.backgroundColor = .lightGray
  
     }
     
@@ -84,8 +84,10 @@ class MainCoordinator: Coordinator {
             vcPublish.tabBarItem = UITabBarItem(title: "Publish", image: UIImage(systemName: "plus.square.fill"), tag: 2)
             arrayVC.append(vcPublish)
             
-            let vcMessage = UIHostingController(rootView: MessagesView())
-            vcMessage.tabBarItem = UITabBarItem(title: "Message", image: UIImage(systemName: "envelope"), tag: 3)
+            let messageCoordinator = MessageCoordinator()
+            messageCoordinator.start()
+            messageCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Message", image: UIImage(systemName: "envelope"), tag: 3)
+            let vcMessage = messageCoordinator.rootViewController as UIViewController
             arrayVC.append(vcMessage)
             
             //let vcAccount = UIHostingController(rootView: MyAccountView())

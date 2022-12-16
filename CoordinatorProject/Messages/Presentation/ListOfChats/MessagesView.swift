@@ -10,19 +10,21 @@ import SwiftUI
 struct MessagesView: View {
     
     @StateObject var messagesVM = MessagesVM()
-    @State private var offset: CGFloat = 1000
-    @State private var chatIDs = [String]()
+
+    let chatViewSelected: (String, UserProfile, UserProfile)->Void
+    
     var body: some View {
         
 
-            NavigationStack{
+            
                 ScrollView{
                     VStack(spacing:20){
                         ForEach(messagesVM.chats) {chat in
                             if let announce = messagesVM.announceForChat[chat.id],
                                let userProfile = messagesVM.userProfileForChat[chat.id] {
-                                NavigationLink {
-                                    ChatView(announceId: chat.announceID, otherUser: messagesVM.userProfileForChat[chat.id] ?? UserProfile(id: "", emailAddress: ""),user: messagesVM.currentUserProfile)
+                                Button {
+//                                    ChatView(announceId: chat.announceID, otherUser: messagesVM.userProfileForChat[chat.id] ?? UserProfile(id: "", emailAddress: ""),user: messagesVM.currentUserProfile)
+                                    chatViewSelected(chat.announceID, messagesVM.userProfileForChat[chat.id] ?? UserProfile(id: "", emailAddress: ""), messagesVM.currentUserProfile)
                                     
                                 } label: {
                                     ZStack(alignment:.trailing){
@@ -33,13 +35,6 @@ struct MessagesView: View {
                                         Image(systemName: "chevron.right")
                                             .padding(.trailing)
                                             .foregroundColor(.primary)
-                                    }
-                                    //.offset(y: self.chatIDs.contains(chat.id) ? 0 : offset )
-                                    //.animation(.linear(duration: 0.5), value: self.chatIDs.contains(chat.id))
-                                    .onAppear{
-                                        withAnimation{
-                                            self.chatIDs.append(chat.id)
-                                        }
                                     }
                                 }                                
                                 .listRowSeparator(.hidden)
@@ -55,15 +50,21 @@ struct MessagesView: View {
                 .toolbarBackground(Color.gray, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarColorScheme(.dark, for: .navigationBar)
-            }
+            
     }
+    
+//    var announceRowView: some View {
+//        
+//    }
 }
 
 struct MessagesView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack{
-            MessagesView()
-        }
+    
+            MessagesView { _, _, _ in
+                
+            }
+        
             
     }
 }
