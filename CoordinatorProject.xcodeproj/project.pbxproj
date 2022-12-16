@@ -496,11 +496,11 @@
 		61477022294A049C00E988CD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6147702F294A049C00E988CD /* StartPageCreateAnnounce.swift */,
+				6147702E294A049C00E988CD /* CreateAnnounceStartView.swift */,
 				61477023294A049C00E988CD /* CreateAnnounceVM.swift */,
 				61477024294A049C00E988CD /* Components */,
 				6147702C294A049C00E988CD /* TestToIgnore */,
-				6147702E294A049C00E988CD /* CreateAnnounceStartView.swift */,
-				6147702F294A049C00E988CD /* StartPageCreateAnnounce.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
