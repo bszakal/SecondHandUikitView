@@ -498,8 +498,10 @@
 			isa = PBXGroup;
 			children = (
 				6147702F294A049C00E988CD /* StartPageCreateAnnounce.swift */,
+
 				61477023294A049C00E988CD /* CreateAnnounceVM.swift */,
 				61477024294A049C00E988CD /* Components */,
+
 			);
 			path = Presentation;
 			sourceTree = "<group>";
