@@ -12,22 +12,24 @@ struct StartPageCreateAnnounce: View {
     @State private var offset: CGFloat = 0
     @State private var opacity = 0.0
     let text = Array("Create your Announce")
+    
+    let buttonStartHandler: ()->Void
 
     var body: some View {
         
-        NavigationStack{
+        
             ZStack{
                 VStack{
                     titleView
                     
-                    NavigationLink {
-                        CreateAnnounceStartView().navigationBarBackButtonHidden()
+                    Button {
+                        buttonStartHandler()
                     } label: {
                         navlinkLabel
                     }
                 }
             }
-        }
+        
         .onAppear{
             Task{
                 offset = -40
@@ -66,7 +68,6 @@ struct StartPageCreateAnnounce: View {
 
 struct StartPageCreateAnnounce_Previews: PreviewProvider {
     static var previews: some View {
-        StartPageCreateAnnounce()
-            .environmentObject(LoginState())
+        StartPageCreateAnnounce(){}
     }
 }

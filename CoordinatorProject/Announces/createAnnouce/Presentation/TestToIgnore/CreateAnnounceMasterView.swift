@@ -68,10 +68,10 @@ struct CreateAnnounceStartView2: View {
                                     .transition(.asymmetric(insertion: .move(edge: .bottom).animation(.linear(duration:1)), removal: .opacity))
                                     
                             } else if phaseNbre == 2 {
-                                SelectionTitle2(title: $title, descrpition: $descrpition, price: $price)
-                                    .matchedGeometryEffect(id: "test", in: namespace)
-                                    .animation(.linear(duration: 2), value:phaseNbre)
-                                    .transition(.asymmetric(insertion: .move(edge: .bottom).animation(.linear(duration:1)), removal: .opacity))
+//                                SelectionTitle2(title: $title, descrpition: $descrpition, price: $price)
+//                                    .matchedGeometryEffect(id: "test", in: namespace)
+//                                    .animation(.linear(duration: 2), value:phaseNbre)
+//                                    .transition(.asymmetric(insertion: .move(edge: .bottom).animation(.linear(duration:1)), removal: .opacity))
                             } else if phaseNbre == 3 {
                                 
                             } else if phaseNbre == 4 {
@@ -192,45 +192,45 @@ struct CreateAnnounceStartView2: View {
     }
 }
 
-struct SelectionTitle2: View {
-    
-    @Binding var title: String
-    @Binding var descrpition: String
-    @Binding var price: Double?
-    
-    var body: some View{
-        VStack(spacing:10){
-            Group{
-                TextField(text: $title, label: {
-                    Text("Title")
-                })
-                .padding()
-                .frame(maxWidth: .infinity, minHeight: 50)
-               
-                TextField(value: $price, format: .number, label: {
-                    Text("Price")
-                })
-                .padding()
-                .frame(maxWidth: .infinity, minHeight: 50)
-            
-                TextEditor(text: $descrpition)
-                    .multilineTextAlignment(.leading)
-                    .frame(height: 150)
-                    .foregroundColor(.primary)
-                    .padding()
-                    
-                
-            }
-            .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1).foregroundColor(.primary).opacity(0.1))
-            .padding(.horizontal)
-            
-        }
-        .padding(.vertical)
-        .background(.white)
-
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-    }
-}
+//struct SelectionTitle2: View {
+//    
+//    @Binding var title: String
+//    @Binding var descrpition: String
+//    @Binding var price: Double?
+//    
+//    var body: some View{
+//        VStack(spacing:10){
+//            Group{
+//                TextField(text: $title, label: {
+//                    Text("Title")
+//                })
+//                .padding()
+//                .frame(maxWidth: .infinity, minHeight: 50)
+//               
+//                TextField(value: $price, format: .number, label: {
+//                    Text("Price")
+//                })
+//                .padding()
+//                .frame(maxWidth: .infinity, minHeight: 50)
+//            
+//                TextEditor(text: $descrpition)
+//                    .multilineTextAlignment(.leading)
+//                    .frame(height: 150)
+//                    .foregroundColor(.primary)
+//                    .padding()
+//                    
+//                
+//            }
+//            .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 1).foregroundColor(.primary).opacity(0.1))
+//            .padding(.horizontal)
+//            
+//        }
+//        .padding(.vertical)
+//        .background(.white)
+//
+//                .clipShape(RoundedRectangle(cornerRadius: 10))
+//    }
+//}
 
 
 

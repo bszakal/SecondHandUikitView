@@ -119,6 +119,14 @@
 		61477100294B559E00E988CD /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614770FF294B559E00E988CD /* UserCoordinator.swift */; };
 		61477102294B744300E988CD /* MessageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477101294B744300E988CD /* MessageCoordinator.swift */; };
 		61477104294CADAB00E988CD /* CreateAnnounceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477103294CADAB00E988CD /* CreateAnnounceCoordinator.swift */; };
+		61477106294CB66F00E988CD /* CreateAnnounceStartView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477105294CB66F00E988CD /* CreateAnnounceStartView2.swift */; };
+		61477108294CBAED00E988CD /* SelectionCondition2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477107294CBAED00E988CD /* SelectionCondition2.swift */; };
+		6147710A294CC2FC00E988CD /* CommonPartCreateAnnounceUikit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477109294CC2FC00E988CD /* CommonPartCreateAnnounceUikit.swift */; };
+		6147710C294DD19000E988CD /* CategorySelection2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147710B294DD19000E988CD /* CategorySelection2.swift */; };
+		6147710E294DD8CD00E988CD /* SelectionTitle2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147710D294DD8CD00E988CD /* SelectionTitle2.swift */; };
+		61477110294DE03B00E988CD /* SelectionAddress2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147710F294DE03B00E988CD /* SelectionAddress2.swift */; };
+		61477112294DE58900E988CD /* PhotoUploadSheet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477111294DE58900E988CD /* PhotoUploadSheet2.swift */; };
+		61477114294DF19F00E988CD /* RecapCreateAnnounce2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477113294DF19F00E988CD /* RecapCreateAnnounce2.swift */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
 		61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 61633944294A0280006A10A5 /* FirebaseAuth */; };
 		61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633946294A0280006A10A5 /* FirebaseFirestore */; };
@@ -240,6 +248,14 @@
 		614770FF294B559E00E988CD /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 		61477101294B744300E988CD /* MessageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageCoordinator.swift; path = CoordinatorProject/Main/MessageCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		61477103294CADAB00E988CD /* CreateAnnounceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnounceCoordinator.swift; sourceTree = "<group>"; };
+		61477105294CB66F00E988CD /* CreateAnnounceStartView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnounceStartView2.swift; sourceTree = "<group>"; };
+		61477107294CBAED00E988CD /* SelectionCondition2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCondition2.swift; sourceTree = "<group>"; };
+		61477109294CC2FC00E988CD /* CommonPartCreateAnnounceUikit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPartCreateAnnounceUikit.swift; sourceTree = "<group>"; };
+		6147710B294DD19000E988CD /* CategorySelection2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelection2.swift; sourceTree = "<group>"; };
+		6147710D294DD8CD00E988CD /* SelectionTitle2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTitle2.swift; sourceTree = "<group>"; };
+		6147710F294DE03B00E988CD /* SelectionAddress2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionAddress2.swift; sourceTree = "<group>"; };
+		61477111294DE58900E988CD /* PhotoUploadSheet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadSheet2.swift; sourceTree = "<group>"; };
+		61477113294DF19F00E988CD /* RecapCreateAnnounce2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapCreateAnnounce2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +517,7 @@
 			children = (
 				6147702F294A049C00E988CD /* StartPageCreateAnnounce.swift */,
 				6147702E294A049C00E988CD /* CreateAnnounceStartView.swift */,
+				61477105294CB66F00E988CD /* CreateAnnounceStartView2.swift */,
 				61477023294A049C00E988CD /* CreateAnnounceVM.swift */,
 				61477024294A049C00E988CD /* Components */,
 				6147702C294A049C00E988CD /* TestToIgnore */,
@@ -511,13 +528,20 @@
 		61477024294A049C00E988CD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6147702B294A049C00E988CD /* CategorySelection.swift */,
+				6147710B294DD19000E988CD /* CategorySelection2.swift */,
 				61477025294A049C00E988CD /* Address.swift */,
+				6147710F294DE03B00E988CD /* SelectionAddress2.swift */,
 				61477026294A049C00E988CD /* SelectionCondition.swift */,
+				61477107294CBAED00E988CD /* SelectionCondition2.swift */,
 				61477027294A049C00E988CD /* PhotoUploadView.swift */,
 				61477028294A049C00E988CD /* SelectionTitle.swift */,
+				6147710D294DD8CD00E988CD /* SelectionTitle2.swift */,
 				61477029294A049C00E988CD /* RecapCreateAnnounce.swift */,
 				6147702A294A049C00E988CD /* PhotoUploadSheet.swift */,
-				6147702B294A049C00E988CD /* CategorySelection.swift */,
+				61477111294DE58900E988CD /* PhotoUploadSheet2.swift */,
+				61477109294CC2FC00E988CD /* CommonPartCreateAnnounceUikit.swift */,
+				61477113294DF19F00E988CD /* RecapCreateAnnounce2.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -994,6 +1018,7 @@
 				614770DC294A049D00E988CD /* listOfCategoriesView.swift in Sources */,
 				61477104294CADAB00E988CD /* CreateAnnounceCoordinator.swift in Sources */,
 				614770B2294A049D00E988CD /* EmailSignInView.swift in Sources */,
+				61477114294DF19F00E988CD /* RecapCreateAnnounce2.swift in Sources */,
 				614770CC294A049D00E988CD /* Message.swift in Sources */,
 				614770B3294A049D00E988CD /* FederatedSignInView.swift in Sources */,
 				61477092294A049D00E988CD /* AnnounceView.swift in Sources */,
@@ -1004,6 +1029,7 @@
 				61477095294A049D00E988CD /* AnnounceDetailedView.swift in Sources */,
 				614770BF294A049D00E988CD /* WriteUserProfile.swift in Sources */,
 				614770DB294A049D00E988CD /* Category.swift in Sources */,
+				6147710E294DD8CD00E988CD /* SelectionTitle2.swift in Sources */,
 				61477093294A049D00E988CD /* SingleAnnounceView.swift in Sources */,
 				614770CA294A049D00E988CD /* MessageCreateUpdate.swift in Sources */,
 				614770AF294A049D00E988CD /* LoginRestrictedView.swift in Sources */,
@@ -1018,6 +1044,7 @@
 				614770A2294A049D00E988CD /* PhotoUploadSheet.swift in Sources */,
 				6147709B294A049D00E988CD /* CreateAnnounce.swift in Sources */,
 				61477098294A049D00E988CD /* HomePageView.swift in Sources */,
+				61477108294CBAED00E988CD /* SelectionCondition2.swift in Sources */,
 				614770A1294A049D00E988CD /* RecapCreateAnnounce.swift in Sources */,
 				614770C1294A049D00E988CD /* User.swift in Sources */,
 				614770D5294A049D00E988CD /* FavouriteHeartView.swift in Sources */,
@@ -1026,9 +1053,12 @@
 				614770CE294A049D00E988CD /* ChatView.swift in Sources */,
 				61477100294B559E00E988CD /* UserCoordinator.swift in Sources */,
 				614770C4294A049D00E988CD /* UserProfileView.swift in Sources */,
+				61477112294DE58900E988CD /* PhotoUploadSheet2.swift in Sources */,
 				614770D4294A049D00E988CD /* DIAssembler.swift in Sources */,
+				6147710C294DD19000E988CD /* CategorySelection2.swift in Sources */,
 				614770A0294A049D00E988CD /* SelectionTitle.swift in Sources */,
 				614770D3294A049D00E988CD /* FirebaseStorageGeneralQuery.swift in Sources */,
+				6147710A294CC2FC00E988CD /* CommonPartCreateAnnounceUikit.swift in Sources */,
 				17ECF648280C450600D3E87F /* Coordinator.swift in Sources */,
 				61477091294A049D00E988CD /* AnnounceDetailedViewVM.swift in Sources */,
 				6147708F294A049D00E988CD /* AnnounceRepo.swift in Sources */,
@@ -1074,6 +1104,7 @@
 				6147709E294A049D00E988CD /* SelectionCondition.swift in Sources */,
 				614770D0294A049D00E988CD /* MessagesView.swift in Sources */,
 				614770A6294A049D00E988CD /* StartPageCreateAnnounce.swift in Sources */,
+				61477106294CB66F00E988CD /* CreateAnnounceStartView2.swift in Sources */,
 				61477090294A049D00E988CD /* getAnnounceDI.swift in Sources */,
 				61477094294A049D00E988CD /* AnnouncesListVM.swift in Sources */,
 				614770EB294A11A500E988CD /* MainTabView.swift in Sources */,
@@ -1082,6 +1113,7 @@
 				614770CD294A049D00E988CD /* ChatVM.swift in Sources */,
 				17ECF669280C535E00D3E87F /* FirstTabViewModel.swift in Sources */,
 				17ECF663280C4BBA00D3E87F /* FirstDetailView.swift in Sources */,
+				61477110294DE03B00E988CD /* SelectionAddress2.swift in Sources */,
 				17ECF64A280C455200D3E87F /* ApplicationCoordinator.swift in Sources */,
 				614770BC294A049D00E988CD /* FavouriteView.swift in Sources */,
 				614770BA294A049D00E988CD /* Favourite.swift in Sources */,

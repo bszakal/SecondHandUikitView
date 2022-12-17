@@ -11,6 +11,7 @@ struct SelectionCondition: View {
     
     @Binding var condition: String
     let viewSize: (CGSize) ->Void
+    
 
     var body: some View{
         
