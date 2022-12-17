@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-
-/*
- createAnnounceVM.uploadAnnounce(title: title, description: descrpition, price: price!, category: selectedCategory, condition: condition, deliveryType: deliveryType, address: fullAddress, images: uiPhotosArray)
- */
-
 struct RecapCreateAnnounce2: View {
     
     @ObservedObject var createAnnounceVM: CreateAnnounceVM
@@ -109,6 +104,18 @@ struct RecapCreateAnnounce2: View {
                     }
                 }
             }
+        }
+    }
+}
+
+struct listItemRecapView: View {
+    let title: String
+    let text: String
+    var body: some View{
+        VStack(alignment:.leading, spacing: 5){
+            Text(title)
+                .font(.headline)
+            Text(text)
         }
     }
 }
