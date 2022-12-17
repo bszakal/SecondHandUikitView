@@ -1,15 +1,17 @@
 //
-//  PhotoUploadSheet.swift
-//  SecondHand3
+//  PhotoUploadSheet2.swift
+//  CoordinatorProject
 //
-//  Created by Benjamin Szakal on 05/11/22.
+//  Created by Benjamin Szakal on 17/12/22.
 //
 
 import SwiftUI
 
-struct PhotoUploadSheet: View {
+struct PhotoUploadSheet2: View {
     
     @Environment(\.dismiss) var dismiss
+    
+    @ObservedObject var createAnnounceVM: CreateAnnounceVM
    
     @State private var showConfirmation = false
     @State private var showPhotoLibrary = false
@@ -17,7 +19,12 @@ struct PhotoUploadSheet: View {
     @State private var uiPhotosDico = [Int: UIImage]()
     @State private var selectedPhoto = 0
     @State private var uiPhotosArray = [UIImage]()
-    let CompletionHandler: ([UIImage]) -> Void
+    
+    @State private var showConfirmationDialogue = false
+    
+    let backButtonPressed: ()->Void
+    let forwardButtonPressed: ()->Void
+    let dimissHandler: ()->Void
     
     var body: some View {
         VStack{
@@ -50,29 +57,33 @@ struct PhotoUploadSheet: View {
                     }
                     .padding(.horizontal)
                 }
-                
-                VStack(spacing:0){
-                    Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight:1)
-                    HStack{
-                        Button("Back") {
-                            dismiss()
-                            
-                        }
-                        .modifier(buttonModifierCreateAnnouce())
-                        Spacer()
-                        Button("Next") {
-                            uiPhotosArray = uiPhotosDico.map{$0.value}
-                            CompletionHandler(uiPhotosArray)
-                            
-                        }
-                        .modifier(buttonModifierCreateAnnouce())
-                        .disabled(uiPhotosDico.isEmpty)
+                BottomBarUikit {
+                    if !uiPhotosDico.isEmpty{
+                        createAnnounceVM.uiPhotosArray = uiPhotosDico.map{$0.value}
                     }
+                    backButtonPressed()
+                } nextButtonPressed: {
+                    if !uiPhotosDico.isEmpty{
+                        createAnnounceVM.uiPhotosArray = uiPhotosDico.map{$0.value}
+                        forwardButtonPressed()
+                    }
+                    
                 }
+
             }
             
         }
+        .navigationBarBackButtonHidden()
+        .toolbar{ Button { showConfirmationDialogue = true } label: { dismissButtonCreateAnnounce() } }
+        .confirmationDialog("Are you sure?", isPresented: $showConfirmationDialogue) {
+            Button("Confirm", role: .destructive){ dimissHandler() }
+            Button("Cancel", role: .cancel) { showConfirmationDialogue = false }
+        } message: { Text("Are you sure you want to exit?").font(.title) }
+
+        .onAppear(perform: {
+           uiPhotosDico = createAnnounceVM.loadDicoImgFromArray()
+        })
+        
         .confirmationDialog("Upload Photo", isPresented: $showConfirmation, actions: {
             Button("Library") {showPhotoLibrary = true}
             Button("Camera") {showCamera = true}
@@ -98,20 +109,8 @@ struct PhotoUploadSheet: View {
             ZStack{
                 Text("Upload Photos")
                     .fontWeight(.bold)
-                HStack{
-                    Image(systemName: "xmark")
-                        .padding(.leading)
-                        .font(.title3)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                        
-                    Spacer()
-
-                }
             }
             .font(.title2)
-            //.padding(.top, 20)
             dividerCustom
             
         }
@@ -127,8 +126,8 @@ struct PhotoUploadSheet: View {
 }
 
 
-struct PhotoUploadSheet_Previews: PreviewProvider {
+struct PhotoUploadSheet2_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoUploadSheet(CompletionHandler: {_ in })
+        PhotoUploadSheet2(createAnnounceVM: CreateAnnounceVM(), backButtonPressed: {}, forwardButtonPressed: {}, dimissHandler: {})
     }
 }
