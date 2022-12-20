@@ -40,7 +40,6 @@
 		61477095294A049D00E988CD /* AnnounceDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477016294A049C00E988CD /* AnnounceDetailedView.swift */; };
 		61477096294A049D00E988CD /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477018294A049C00E988CD /* SearchFilterView.swift */; };
 		61477097294A049D00E988CD /* SearchFilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477019294A049C00E988CD /* SearchFilterVM.swift */; };
-		61477098294A049D00E988CD /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147701A294A049C00E988CD /* HomePageView.swift */; };
 		61477099294A049D00E988CD /* CreateAnnounceFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147701D294A049C00E988CD /* CreateAnnounceFirebase.swift */; };
 		6147709A294A049D00E988CD /* CreateAnnounceDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147701F294A049C00E988CD /* CreateAnnounceDI.swift */; };
 		6147709B294A049D00E988CD /* CreateAnnounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477021294A049C00E988CD /* CreateAnnounce.swift */; };
@@ -165,7 +164,6 @@
 		61477016294A049C00E988CD /* AnnounceDetailedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceDetailedView.swift; sourceTree = "<group>"; };
 		61477018294A049C00E988CD /* SearchFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
 		61477019294A049C00E988CD /* SearchFilterVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterVM.swift; sourceTree = "<group>"; };
-		6147701A294A049C00E988CD /* HomePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		6147701D294A049C00E988CD /* CreateAnnounceFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAnnounceFirebase.swift; sourceTree = "<group>"; };
 		6147701F294A049C00E988CD /* CreateAnnounceDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAnnounceDI.swift; sourceTree = "<group>"; };
 		61477021294A049C00E988CD /* CreateAnnounce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAnnounce.swift; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 		61477010294A049C00E988CD /* Announces */ = {
 			isa = PBXGroup;
 			children = (
-				6147701A294A049C00E988CD /* HomePageView.swift */,
 				61477012294A049C00E988CD /* AnnounceView.swift */,
 				61477015294A049C00E988CD /* AnnouncesListVM.swift */,
 				61477016294A049C00E988CD /* AnnounceDetailedView.swift */,
@@ -1016,7 +1013,6 @@
 				17ECF631280C438F00D3E87F /* AppDelegate.swift in Sources */,
 				614770B1294A049D00E988CD /* SignInWithCorrectProviderView.swift in Sources */,
 				6147709B294A049D00E988CD /* CreateAnnounce.swift in Sources */,
-				61477098294A049D00E988CD /* HomePageView.swift in Sources */,
 				61477108294CBAED00E988CD /* SelectionCondition2.swift in Sources */,
 				614770C1294A049D00E988CD /* User.swift in Sources */,
 				614770D5294A049D00E988CD /* FavouriteHeartView.swift in Sources */,
