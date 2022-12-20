@@ -34,8 +34,8 @@ struct HomePageView: View {
                             
                         } else {
                             
-                            listOfCategoriesView()
-                                .frame(height: 220)
+//                            listOfCategoriesView()
+//                                .frame(height: 220)
                             
                             AnnounceView(isPartOfMainView: true)
                         }

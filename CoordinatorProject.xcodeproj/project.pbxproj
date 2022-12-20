@@ -118,6 +118,9 @@
 		61477110294DE03B00E988CD /* SelectionAddress2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147710F294DE03B00E988CD /* SelectionAddress2.swift */; };
 		61477112294DE58900E988CD /* PhotoUploadSheet2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477111294DE58900E988CD /* PhotoUploadSheet2.swift */; };
 		61477114294DF19F00E988CD /* RecapCreateAnnounce2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477113294DF19F00E988CD /* RecapCreateAnnounce2.swift */; };
+		61477116294EEBC500E988CD /* GetAnnounceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477115294EEBC500E988CD /* GetAnnounceCoordinator.swift */; };
+		61477118294EF08B00E988CD /* SearchFilterView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477117294EF08B00E988CD /* SearchFilterView2.swift */; };
+		6147711A294F013300E988CD /* HomePageView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477119294F013300E988CD /* HomePageView2.swift */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
 		61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 61633944294A0280006A10A5 /* FirebaseAuth */; };
 		61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 61633946294A0280006A10A5 /* FirebaseFirestore */; };
@@ -238,6 +241,9 @@
 		6147710F294DE03B00E988CD /* SelectionAddress2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionAddress2.swift; sourceTree = "<group>"; };
 		61477111294DE58900E988CD /* PhotoUploadSheet2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadSheet2.swift; sourceTree = "<group>"; };
 		61477113294DF19F00E988CD /* RecapCreateAnnounce2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapCreateAnnounce2.swift; sourceTree = "<group>"; };
+		61477115294EEBC500E988CD /* GetAnnounceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnnounceCoordinator.swift; sourceTree = "<group>"; };
+		61477117294EF08B00E988CD /* SearchFilterView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView2.swift; sourceTree = "<group>"; };
+		61477119294F013300E988CD /* HomePageView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +346,7 @@
 				614770FF294B559E00E988CD /* UserCoordinator.swift */,
 				61477101294B744300E988CD /* MessageCoordinator.swift */,
 				61477103294CADAB00E988CD /* CreateAnnounceCoordinator.swift */,
+				61477115294EEBC500E988CD /* GetAnnounceCoordinator.swift */,
 				17ECF656280C4A9000D3E87F /* First */,
 				17ECF657280C4A9600D3E87F /* Second */,
 			);
@@ -438,6 +445,7 @@
 				61477016294A049C00E988CD /* AnnounceDetailedView.swift */,
 				61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */,
 				61477013294A049C00E988CD /* Components */,
+				61477119294F013300E988CD /* HomePageView2.swift */,
 			);
 			path = Announces;
 			sourceTree = "<group>";
@@ -455,6 +463,7 @@
 			children = (
 				61477018294A049C00E988CD /* SearchFilterView.swift */,
 				61477019294A049C00E988CD /* SearchFilterVM.swift */,
+				61477117294EF08B00E988CD /* SearchFilterView2.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -498,10 +507,8 @@
 			isa = PBXGroup;
 			children = (
 				6147702F294A049C00E988CD /* StartPageCreateAnnounce.swift */,
-
 				61477023294A049C00E988CD /* CreateAnnounceVM.swift */,
 				61477024294A049C00E988CD /* Components */,
-
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -990,6 +997,7 @@
 				61477092294A049D00E988CD /* AnnounceView.swift in Sources */,
 				61477097294A049D00E988CD /* SearchFilterVM.swift in Sources */,
 				17ECF635280C438F00D3E87F /* ViewController.swift in Sources */,
+				61477118294EF08B00E988CD /* SearchFilterView2.swift in Sources */,
 				614770EF294B0F4400E988CD /* LoginCoordinator.swift in Sources */,
 				614770D9294A049D00E988CD /* FirebaseCategories.swift in Sources */,
 				61477095294A049D00E988CD /* AnnounceDetailedView.swift in Sources */,
@@ -1030,6 +1038,7 @@
 				614770B5294A049D00E988CD /* LoginVM.swift in Sources */,
 				614770D6294A049D00E988CD /* PhotoView.swift in Sources */,
 				614770AA294A049D00E988CD /* LoggingState.swift in Sources */,
+				6147711A294F013300E988CD /* HomePageView2.swift in Sources */,
 				614770B8294A049D00E988CD /* FavouriteDomaine.swift in Sources */,
 				17ECF655280C4A6200D3E87F /* MainCoordinator.swift in Sources */,
 				614770DD294A049D00E988CD /* CategoriesViewVM.swift in Sources */,
@@ -1068,6 +1077,7 @@
 				614770EB294A11A500E988CD /* MainTabView.swift in Sources */,
 				614770A8294A049D00E988CD /* AppLogger.swift in Sources */,
 				614770B7294A049D00E988CD /* FireBaseFavourite.swift in Sources */,
+				61477116294EEBC500E988CD /* GetAnnounceCoordinator.swift in Sources */,
 				614770CD294A049D00E988CD /* ChatVM.swift in Sources */,
 				17ECF669280C535E00D3E87F /* FirstTabViewModel.swift in Sources */,
 				17ECF663280C4BBA00D3E87F /* FirstDetailView.swift in Sources */,

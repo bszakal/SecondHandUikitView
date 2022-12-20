@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct FavouriteHeartView: View {
-    @EnvironmentObject var loginState: LoginState
-    var isLoggedIn: Bool? = nil
+    
     let isAFavourite: Bool
+    let isLoggedIn: Bool?
     let completioHandlerOnTap: () ->Void
     @State private var scaleEffectFavChange = 1.0
     var body: some View {
@@ -20,11 +20,12 @@ struct FavouriteHeartView: View {
             .foregroundColor(isAFavourite ? .red : .primary)
             .onTapGesture {
                 completioHandlerOnTap()
-                if loginState.isLoggedIn {                    
+                if let safeIsLoggedIn = isLoggedIn, safeIsLoggedIn == true {
                     Task{
                             scaleEffectFavChange = 2
                         try await Task.sleep(nanoseconds: 200_000_000)
                             scaleEffectFavChange = 1
+                        
                     }
                 }
             }
@@ -43,6 +44,6 @@ struct animatedFavChange: ViewModifier {
 
 struct FavouriteHeartView_Previews: PreviewProvider {
     static var previews: some View {
-        FavouriteHeartView(isLoggedIn: true, isAFavourite: true, completioHandlerOnTap: {})
+        FavouriteHeartView( isAFavourite: true, isLoggedIn: true, completioHandlerOnTap: {})
     }
 }

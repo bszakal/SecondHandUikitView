@@ -11,7 +11,6 @@ import SwiftUI
 
 struct AnnounceView: View {
 
-    
     @StateObject var announcesListVM = AnnouncesListVM()
 
     var isPartOfMainView: Bool = false
@@ -24,10 +23,12 @@ struct AnnounceView: View {
     @State var maxPrice: Double = 1000
     @State var noOlderThanDate: Date = Calendar.current.date(byAdding: .day, value: -300, to: Date()) ?? Date()
    
+    weak var delegate: GetAnnounceCoordinator?
     
     var body: some View {
 
             VStack(alignment:.leading, spacing: 8){
+
                 Text(title)
                     .foregroundColor(.primary)
                     .font(.title)
@@ -36,7 +37,7 @@ struct AnnounceView: View {
 
                 if isPartOfMainView == false {
                     ScrollView(showsIndicators:false){
-                        gridViewForAnnounces(announcesListVM: announcesListVM, isSearchFiltered: isSearchFiltered, isTempData: false, announces: announcesListVM.announces)
+                        gridViewForAnnounces(announcesListVM: announcesListVM, isSearchFiltered: isSearchFiltered, isTempData: false, announces: announcesListVM.announces, delegate: delegate)
                         
                     }
                     .refreshable {
@@ -49,13 +50,14 @@ struct AnnounceView: View {
                     }
                 } else {
                     if announcesListVM.useTempData{
-                        gridViewForAnnounces(announcesListVM: announcesListVM, isSearchFiltered: isSearchFiltered, isTempData: true, announces: announcesListVM.tempData)
+                        gridViewForAnnounces(announcesListVM: announcesListVM, isSearchFiltered: isSearchFiltered, isTempData: true, announces: announcesListVM.tempData, delegate: delegate)
                     } else {
-                        gridViewForAnnounces(announcesListVM: announcesListVM, isSearchFiltered: isSearchFiltered, isTempData: false, announces: announcesListVM.announces)
+                        gridViewForAnnounces(announcesListVM: announcesListVM, isSearchFiltered: isSearchFiltered, isTempData: false, announces: announcesListVM.announces, delegate: delegate)
                     }
                 }
             }
             .padding(.horizontal)
+            .modifier(backgroundModifier(isPartOfMainView: isPartOfMainView))
 
         .onAppear{
             announcesListVM.suscribeToAnnounceRepoArray()
@@ -79,11 +81,12 @@ struct AnnounceView: View {
         let isSearchFiltered: Bool
         let isTempData: Bool
         let announces: [Announce]
+        weak var delegate: GetAnnounceCoordinator?
         
         var body: some View{
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 175))], spacing: 10){
                 ForEach(announces) { announce in
-                    SingleAnnounceView(announce: announce,announcesListVM: announcesListVM)
+                    SingleAnnounceView(announce: announce,announcesListVM: announcesListVM, delegate: delegate)
                         .frame(height: 350)
                         .onAppear{
                             if announcesListVM.isLastAnnounce(announce: announce)  && !isTempData {
@@ -120,7 +123,17 @@ struct AnnounceView: View {
     }
 }
 
-
+struct backgroundModifier: ViewModifier{
+    let isPartOfMainView: Bool
+    func body(content: Content)-> some View{
+        if isPartOfMainView{
+            content
+        } else {
+            content
+                .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.3), .white]), startPoint: .top, endPoint: .trailing))
+        }
+    }
+}
 
 
 struct AnnounceView_Previews: PreviewProvider {

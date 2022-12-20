@@ -9,27 +9,27 @@ import SwiftUI
 
 struct SingleAnnounceView: View {
     
-    let announce: Announce
+    let announce: Announce    
     @ObservedObject var announcesListVM: AnnouncesListVM
-    @EnvironmentObject var loginState: LoginState
     @State private var showLoginView = false
+    weak var delegate: GetAnnounceCoordinator?
     
     var body: some View{
         
         VStack{
             VStack(alignment:.leading){
                 ZStack(alignment:.topTrailing){
-                    NavigationLink {
-                        AnnounceDetailedView(announce: announce)
+                    Button {
+                        delegate?.showAnnounceDetailView(announce: announce)
                     } label: {
                         photoView2(imageUrlsString: announce.imageRefs)
                     }
 
-                    FavouriteHeartView(isAFavourite: announcesListVM.isAFavouriteAnnounce(announceId: announce.id ?? "")) {
-                        if loginState.isLoggedIn{
+                    FavouriteHeartView(isAFavourite: announcesListVM.isAFavouriteAnnounce(announceId: announce.id ?? ""), isLoggedIn: delegate?.isLoggedIn) {
+                        if let isLoggedIn = delegate?.isLoggedIn, isLoggedIn == true{
                             announcesListVM.AddOrRemoveFromFavourite(announce: announce)
                         } else {
-                            showLoginView = true
+                            delegate?.showLoginView()
                         }
                     }
                     .padding()
@@ -39,9 +39,9 @@ struct SingleAnnounceView: View {
                textView
             }
         }
-        .sheet(isPresented: $showLoginView) {
-            LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in})
-        }
+//        .sheet(isPresented: $showLoginView) {
+//            LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in})
+//        }
     }
  
     var textView: some View {

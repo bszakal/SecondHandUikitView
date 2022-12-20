@@ -1,0 +1,83 @@
+//
+//  GetAnnounceCoordinator.swift
+//  CoordinatorProject
+//
+//  Created by Benjamin Szakal on 18/12/22.
+//
+import SwiftUI
+import UIKit
+import Foundation
+
+
+class GetAnnounceCoordinator:NSObject, Coordinator, ObservableObject {
+    
+    var rootViewController = UINavigationController()
+    let isLoggedIn: Bool
+    let showLoginView: ()->Void
+ 
+    
+    init(isLoggedIn: Bool, showLoginView: @escaping ()->Void){
+        self.isLoggedIn = isLoggedIn
+        self.showLoginView = showLoginView
+        
+        super.init()
+        self.rootViewController.delegate = self
+    }
+        
+    func start(){
+        
+        let homePageVC = UIHostingController(rootView: HomePageView2(delegate: self))
+        rootViewController.pushViewController(homePageVC, animated: false)
+            
+    }
+    
+    func ShowFilteredAnnounces(searchText: String, category: String, minPrice: Double, maxPrice: Double, noOlderThanDate: Date? ){
+        if let searchDate = noOlderThanDate{
+            let AnnouncesViewVC = UIHostingController(rootView: AnnounceView(isPartOfMainView: false, title: "Announces", isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice, noOlderThanDate: searchDate))
+            rootViewController.pushViewController(AnnouncesViewVC, animated: true)
+        } else {
+            let AnnouncesViewVC = UIHostingController(rootView: AnnounceView(isPartOfMainView: false, title: "Announces", isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice))
+            rootViewController.pushViewController(AnnouncesViewVC, animated: true)
+        }
+        
+        
+    }
+    
+    func showFilterView(){
+        let searchViewVC = UIHostingController(rootView: SearchFilterView2(delegate: self, callbackIfCancelled: {
+            self.rootViewController.popViewController(animated: false)
+        }))
+        self.rootViewController.pushViewController(searchViewVC, animated: false)
+    }
+    
+    func showAnnounceDetailView(announce: Announce){
+        let announceDetailedViewVC = UIHostingController(rootView: AnnounceDetailedView(announce: announce, delegate: self))
+        
+        rootViewController.pushViewController(announceDetailedViewVC, animated: true)
+    }
+    
+    func showChatView(announceId: String, otherUser: UserProfile, currentUser: UserProfile){
+        let chatViewVC = UIHostingController(rootView: ChatView(announceId: announceId, otherUser: otherUser, user: currentUser){
+        })
+        self.rootViewController.pushViewController(chatViewVC, animated: true)
+        
+    }
+    
+}
+
+extension GetAnnounceCoordinator: UINavigationControllerDelegate{
+    func navigationController(_ navigationController: UINavigationController,
+                              willShow viewController: UIViewController,
+                              animated: Bool) {
+        
+        if viewController as? UIHostingController<HomePageView2> != nil {
+            self.rootViewController.tabBarController?.tabBar.isHidden = false
+        } else {
+            self.rootViewController.tabBarController?.tabBar.isHidden = true
+        }
+    }
+}
+
+
+
+

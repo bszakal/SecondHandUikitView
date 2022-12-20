@@ -68,10 +68,15 @@ class MainCoordinator: Coordinator {
         
         var arrayVC = [UIViewController]()
         
-        let vcAnnounce = UIHostingController(rootView: HomePageView())
-        vcAnnounce.tabBarItem = UITabBarItem(title: "Announces", image: UIImage(systemName: "list.bullet.rectangle.fill"), tag: 0)
+        let getAnnounceCoordinator = GetAnnounceCoordinator(isLoggedIn: isLoggedIn, showLoginView:{
+            self.showLoginView()
+        })
         
-        arrayVC.append(vcAnnounce)
+        getAnnounceCoordinator.start()
+        getAnnounceCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Announces", image: UIImage(systemName: "list.bullet.rectangle.fill"), tag: 0)
+        let vcGetAnnounce = getAnnounceCoordinator.rootViewController as UIViewController
+        arrayVC.append(vcGetAnnounce)
+        self.childCoordinators.append(getAnnounceCoordinator)
         
         
         if isLoggedIn {
@@ -92,7 +97,6 @@ class MainCoordinator: Coordinator {
             let vcMessage = messageCoordinator.rootViewController as UIViewController
             arrayVC.append(vcMessage)
             
-            //let vcAccount = UIHostingController(rootView: MyAccountView())
             let userCoordinator = UserCoordinator()
             userCoordinator.start()
             userCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Account", image: UIImage(systemName: "person.crop.circle.fill"), tag: 4)
@@ -131,10 +135,17 @@ class MainCoordinator: Coordinator {
     }
     
     func showLoginView(){
-        let loginCoordinator = LoginCoordinator()
-        loginCoordinator.start()
-        rootViewController.present(loginCoordinator.rootViewController, animated: true)
+        let loginCoordinator = childCoordinators.compactMap{$0 as? LoginCoordinator}
+        if loginCoordinator.isEmpty{
+            let loginCoordinator = LoginCoordinator()
+            loginCoordinator.start()
+            rootViewController.present(loginCoordinator.rootViewController, animated: true)
+            childCoordinators.append(loginCoordinator)
+        } else {
+            loginCoordinator[0].start()
+            rootViewController.present(loginCoordinator[0].rootViewController, animated: true)
+            print("re-used")
+        }
     }
-
 }
 
