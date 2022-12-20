@@ -12,6 +12,8 @@ struct listOfCategoriesView: View {
     
     @StateObject var categoriesVM = CategoriesVM()
     
+    weak var delegate: GetAnnounceCoordinator?
+    
     var body: some View {
         
             VStack(alignment:.leading, spacing: 8){
@@ -23,8 +25,8 @@ struct listOfCategoriesView: View {
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack{
                         ForEach(categoriesVM.categories){ cat in
-                            NavigationLink {
-                                AnnounceView(isSearchFiltered: true, category: cat.Name)
+                            Button {
+                                delegate?.ShowFilteredAnnounces(searchText: "", category: cat.Name, minPrice: 0.0, maxPrice: 1000.0, noOlderThanDate: nil)
                             } label: {
                                 ZStack(alignment:.bottomLeading){
                                     

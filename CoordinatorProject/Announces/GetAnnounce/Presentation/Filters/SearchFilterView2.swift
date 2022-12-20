@@ -1,26 +1,27 @@
 //
-//  SearchFilterView.swift
-//  SecondHand3
+//  SearchFilterView2.swift
+//  CoordinatorProject
 //
-//  Created by Benjamin Szakal on 03/11/22.
+//  Created by Benjamin Szakal on 18/12/22.
 //
-
 import SwiftUI
 
-struct SearchFilterView: View {
+struct SearchFilterView2: View {
     
     @Environment(\.dismiss) var dismiss
     @StateObject var searchfilterVM = SearchFilterVM()
     
-    @FocusState private var searchBarFocus
-    
-    @Binding var searchText: String
-    @Binding var category: String
-    @Binding var minPrice: Double
-    @Binding var maxPrice: Double
-    @Binding var noOlderThanDate: Date
-    let callbackIfSearchPushed: ()-> Void
+    weak var delegate: GetAnnounceCoordinator?
+ 
     let callbackIfCancelled: ()-> Void
+    
+    @FocusState private var searchBarFocus
+    @State private var searchText = ""
+    @State private var category = "Any"
+    @State private var minPrice = 0.0
+    @State private var maxPrice = 1000.0
+    @State private var noOlderThanDate = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()
+
     
     //animation related
     @State private var individualFiltersOpacity: CGFloat = 0
@@ -103,12 +104,13 @@ struct SearchFilterView: View {
                 Spacer()
                 Button("Search") {
                     Task{
-                        animationOnDisappear()
-                        withAnimation{
-                            fadeOutOnDismiss = true
-                        }
+//                        animationOnDisappear()
+//                        withAnimation{
+//                            fadeOutOnDismiss = true
+//                        }
                         try await Task.sleep(nanoseconds: 500_000_000)
-                        callbackIfSearchPushed()
+
+                        delegate?.ShowFilteredAnnounces(searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice, noOlderThanDate: noOlderThanDate)
                         dismiss()
                     }
                 }
@@ -131,7 +133,7 @@ struct SearchFilterView: View {
             animationOnAppear()
         }
         .opacity(fadeOutOnDismiss ? 0 : 1).animation(.linear(duration: 0.5), value: fadeOutOnDismiss)
-        
+        .navigationBarBackButtonHidden()
     }
     
     func animationOnAppear() {
@@ -255,42 +257,42 @@ struct SearchFilterView: View {
 
 
 
-//struct searchBar: View {
-//    
-//    @Environment (\.dismiss) var dismiss
-//    @Binding var searchText: String
-//    
-//    var body: some View{
-//        
-//        ZStack(alignment:.trailing){
-//            TextField("Search", text: $searchText)
-//                .padding()
-//                .frame(maxHeight: 50)
-//                .background(.white)
-//                .clipShape(RoundedRectangle(cornerRadius: 30))
-//                .foregroundColor(.primary)
-//                
-//                
-//            if searchText != "" {
-//                Image(systemName: "x.circle.fill")
-//                    .padding(.horizontal, 30)
-//                    .onTapGesture {
-//                        searchText = ""
-//                    }
-//            } else {
-//                Image(systemName: "magnifyingglass")
-//                    .padding(.horizontal, 30)
-//                    
-//            }
-//        }
-//        
-//        
-//    }
-//}
+struct searchBar: View {
+    
+    @Environment (\.dismiss) var dismiss
+    @Binding var searchText: String
+    
+    var body: some View{
+        
+        ZStack(alignment:.trailing){
+            TextField("Search", text: $searchText)
+                .padding()
+                .frame(maxHeight: 50)
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .foregroundColor(.primary)
+                
+                
+            if searchText != "" {
+                Image(systemName: "x.circle.fill")
+                    .padding(.horizontal, 30)
+                    .onTapGesture {
+                        searchText = ""
+                    }
+            } else {
+                Image(systemName: "magnifyingglass")
+                    .padding(.horizontal, 30)
+                    
+            }
+        }
+        
+        
+    }
+}
 
 
-struct SearchFilterView_Previews: PreviewProvider {
+struct SearchFilterView2_Previews: PreviewProvider {
     static var previews: some View {
-        SearchFilterView(searchText: .constant(""), category: .constant("Any"), minPrice: .constant(0), maxPrice: .constant(1000), noOlderThanDate: .constant(Date()), callbackIfSearchPushed:({})) {}
+        SearchFilterView2(callbackIfCancelled: {})
     }
 }

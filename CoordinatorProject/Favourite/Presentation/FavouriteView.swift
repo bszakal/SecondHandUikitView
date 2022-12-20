@@ -75,10 +75,10 @@ struct announceView: View {
             ZStack(alignment:.topTrailing){
                 photoView2(imageUrlsString: announce.imageRefs)
                 
-                FavouriteHeartView(isAFavourite: true) {
-                    favouriteVM.AddOrRemoveFromFavourite(announce: announce)
-                }
-                .padding(5)
+//                FavouriteHeartView(isAFavourite: true) {
+//                    favouriteVM.AddOrRemoveFromFavourite(announce: announce)
+//                }
+//                .padding(5)
                 
             }
                 .frame(width: 100, height: 140)

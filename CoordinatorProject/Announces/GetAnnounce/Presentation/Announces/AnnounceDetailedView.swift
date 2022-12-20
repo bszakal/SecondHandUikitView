@@ -9,12 +9,12 @@ import SwiftUI
 
 struct AnnounceDetailedView: View {
     
-    @EnvironmentObject var loginState: LoginState
+    
     @State private var showloginView = false
     
     @StateObject var announceDetailedVM = AnnounceDetailedVM()
     let announce: Announce
-    
+    weak var delegate: GetAnnounceCoordinator?
     
     var body: some View {
         GeometryReader{ geo in
@@ -46,12 +46,13 @@ struct AnnounceDetailedView: View {
         }
         .toolbar(.hidden, for: .tabBar)
         .toolbar(content: {
-            FavouriteHeartView(isAFavourite: announceDetailedVM.isAFavourite) {
-                if loginState.isLoggedIn{
+            FavouriteHeartView(isAFavourite: announceDetailedVM.isAFavourite, isLoggedIn: delegate?.isLoggedIn) {
+                if let isLoggedIn = delegate?.isLoggedIn, isLoggedIn == true{
                     announceDetailedVM.AddOrRemoveFromFavourite(announce: announce)
                 } else {
-                    showloginView = true
+                    delegate?.showLoginView()
                 }
+   
             }
             .padding(5)
             .background(Circle()).foregroundColor(.white)
@@ -62,9 +63,6 @@ struct AnnounceDetailedView: View {
             announceDetailedVM.getUserDetailsForAnnounce(announce: announce)
             announceDetailedVM.getCurrentUserDetails()
             
-        }
-        .sheet(isPresented: $showloginView) {
-            LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in})
         }
     }
     
@@ -158,11 +156,13 @@ struct AnnounceDetailedView: View {
                 .padding(.bottom, 5)
             HStack{
    
-                NavigationLink {
-                    if loginState.isLoggedIn{
-//                        ChatView(announceId: announce.id ?? "", otherUser: announceDetailedVM.userProfileForAnnounce, user: announceDetailedVM.currentUserProfile)
+                Button {
+                    if let isLoggedIn = delegate?.isLoggedIn, isLoggedIn == true{
+
+                        delegate?.showChatView(announceId: announce.id ?? "", otherUser: announceDetailedVM.userProfileForAnnounce, currentUser: announceDetailedVM.currentUserProfile)
+
                     } else {
-                        LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in}).navigationBarBackButtonHidden()
+                        delegate?.showLoginView()
                     }
                 } label: {
                     bottomBarButtonLabel(text: "Message")
@@ -180,6 +180,7 @@ struct AnnounceDetailedView: View {
             
         }
         .background(.white)
+        
     }
     
     struct bottomBarButtonLabel: View {
