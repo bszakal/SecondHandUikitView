@@ -12,46 +12,47 @@ struct FavouriteView: View {
     @StateObject var favouriteVM = FavouriteVM()
     @State private var useTempData = true
     
+    let router: AnnounceDetailViewDelegate!
+    
     var body: some View {
         
-            NavigationStack{
-                ScrollView{
-                    
-                    if useTempData {
-                        tempDataViewFavourite
-                    } else {
-                        ForEach(favouriteVM.favouriteAnnounces){ announce in
-                            NavigationLink {
-                                AnnounceDetailedView(announce: announce)
-                            } label: {
-                                announceView(announce: announce, favouriteVM: favouriteVM)
-                            }
-                        }
-                        .padding(.vertical, 10)
+        
+        ScrollView{
+            
+            if useTempData {
+                tempDataViewFavourite
+            } else {
+                ForEach(favouriteVM.favouriteAnnounces){ announce in
+                    Button {
+                        router?.showAnnounceDetailView(announce: announce)
                         
+                    } label: {
+                        announceView(announce: announce, favouriteVM: favouriteVM)
                     }
-                    
                 }
-                .padding([.horizontal])
-                .navigationTitle("Favourites")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarBackground(Color.gray, for: .navigationBar)
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbarColorScheme(.dark, for: .navigationBar)
+                .padding(.vertical, 10)
                 
             }
             
-            .onChange(of: favouriteVM.finishedLoading, perform: { newValue in
-                if newValue {
-                    withAnimation{
-                        useTempData = false
-                    }
+        }
+        .padding([.horizontal])
+        .navigationTitle("Favourites")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color.gray, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        
+        .onChange(of: favouriteVM.finishedLoading, perform: { newValue in
+            if newValue {
+                withAnimation{
+                    useTempData = false
                 }
-            })
-            
-            .onAppear{
-                favouriteVM.getFavourites()
             }
+        })
+        
+        .onAppear{
+            favouriteVM.getFavourites()
+        }
         
     }
     
@@ -75,10 +76,10 @@ struct announceView: View {
             ZStack(alignment:.topTrailing){
                 photoView2(imageUrlsString: announce.imageRefs)
                 
-//                FavouriteHeartView(isAFavourite: true) {
-//                    favouriteVM.AddOrRemoveFromFavourite(announce: announce)
-//                }
-//                .padding(5)
+                FavouriteHeartView(isAFavourite: true, isLoggedIn: true) {
+                    favouriteVM.AddOrRemoveFromFavourite(announce: announce)
+                }
+                .padding(5)
                 
             }
                 .frame(width: 100, height: 140)
@@ -129,12 +130,8 @@ struct TextView: View {
     }
 }
 
-
-
-
-
 struct FavouriteView_Previews: PreviewProvider {
     static var previews: some View {
-        FavouriteView()
+        FavouriteView(router: FavouriteCoordinator(isLoggedIn: true, showLoginView: {}))
     }
 }

@@ -6,24 +6,30 @@
 //
 
 import SwiftUI
+import UIKit
+
+protocol showChatViewProtocol {
+    func showChatView(announceId: String, otherUser: UserProfile, currentUser: UserProfile)
+}
+
+extension showChatViewProtocol {
+    func getChatViewVC(announceId: String, otherUser: UserProfile, currentUser: UserProfile) ->UIHostingController<ChatView>{
+        return UIHostingController(rootView: ChatView(announceId: announceId, otherUser: otherUser, user: currentUser))
+    }
+}
 
 struct ChatView: View {
     
-
     let otherUser: UserProfile
     let user: UserProfile
     @StateObject var chatVM: ChatVM
     @State private var id = ""
     @State private var newMessage = ""
     
-    let completionHandler: ()-> Void
-
-    init(announceId: String, otherUser: UserProfile, user: UserProfile, completionHandler: @escaping ()->Void ) {
-  
+    init(announceId: String, otherUser: UserProfile, user: UserProfile ) {
         self.otherUser = otherUser
         self.user = user
         self._chatVM = StateObject(wrappedValue: ChatVM(announceId: announceId, announceUserId: otherUser.id))
-        self.completionHandler = completionHandler
     }
     
     var idMostRecent: String {
@@ -89,9 +95,6 @@ struct ChatView: View {
         .onAppear{
             chatVM.suscribeChatLiveData()
         }
-        .onDisappear(perform: {
-            completionHandler()
-        })
         .toolbar{
             HStack{
                 photoView2(imageUrlsString: [otherUser.profilePictureUrlStr])
@@ -183,7 +186,7 @@ struct ChatView: View {
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
        
-        ChatView(announceId:Announce.example.id ?? "", otherUser: UserProfile.example, user: UserProfile.example){}
+        ChatView(announceId:Announce.example.id ?? "", otherUser: UserProfile.example, user: UserProfile.example)
         
     }
 }

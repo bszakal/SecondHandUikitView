@@ -23,7 +23,7 @@ struct MessagesView: View {
                             if let announce = messagesVM.announceForChat[chat.id],
                                let userProfile = messagesVM.userProfileForChat[chat.id] {
                                 Button {
-//                                    ChatView(announceId: chat.announceID, otherUser: messagesVM.userProfileForChat[chat.id] ?? UserProfile(id: "", emailAddress: ""),user: messagesVM.currentUserProfile)
+
                                     chatViewSelected(chat.announceID, messagesVM.userProfileForChat[chat.id] ?? UserProfile(id: "", emailAddress: ""), messagesVM.currentUserProfile)
                                     
                                 } label: {
@@ -53,9 +53,6 @@ struct MessagesView: View {
             
     }
     
-//    var announceRowView: some View {
-//        
-//    }
 }
 
 struct MessagesView_Previews: PreviewProvider {

@@ -13,8 +13,6 @@ import SwiftUI
 class MainCoordinator: Coordinator {
     
     var rootViewController: UITabBarController
-    var selectedTab = 0
-    //var rootViewController = UIViewController()
     @Inject var loginState: LogginStateUikitProtocol!
     
     var childCoordinators = [Coordinator]()
@@ -23,10 +21,6 @@ class MainCoordinator: Coordinator {
     
     init() {
         self.rootViewController = UITabBarController()
-//        rootViewController.tabBar.isTranslucent = false
-//        rootViewController.tabBar.isOpaque = true
-//        rootViewController.tabBar.backgroundColor = .lightGray
- 
     }
     
     func start() {
@@ -80,9 +74,14 @@ class MainCoordinator: Coordinator {
         
         
         if isLoggedIn {
-
-            let vcFavourite = UIHostingController(rootView: FavouriteView())
-            vcFavourite.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart.fill"), tag: 1)
+            
+            let favouriteCoordinator = FavouriteCoordinator(isLoggedIn: isLoggedIn) {
+                self.showLoginView()
+            }
+            
+            favouriteCoordinator.start()
+            favouriteCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart.fill"), tag: 1)
+            let vcFavourite = favouriteCoordinator.rootViewController as UIViewController
             arrayVC.append(vcFavourite)
             
             let createAnnounceCoordinator = CreateAnnounceCoordinator()
@@ -97,7 +96,9 @@ class MainCoordinator: Coordinator {
             let vcMessage = messageCoordinator.rootViewController as UIViewController
             arrayVC.append(vcMessage)
             
-            let userCoordinator = UserCoordinator()
+            let userCoordinator = UserCoordinator(isLoggedIn: isLoggedIn) {
+                self.showLoginView()
+            }
             userCoordinator.start()
             userCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Account", image: UIImage(systemName: "person.crop.circle.fill"), tag: 4)
             let userVc = userCoordinator.rootViewController as UIViewController
@@ -148,4 +149,5 @@ class MainCoordinator: Coordinator {
         }
     }
 }
+
 
