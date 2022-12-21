@@ -9,8 +9,8 @@ import UIKit
 import Foundation
 
 
-class GetAnnounceCoordinator:NSObject, Coordinator, ObservableObject {
-    
+class GetAnnounceCoordinator:NSObject, Coordinator {
+
     var rootViewController = UINavigationController()
     let isLoggedIn: Bool
     let showLoginView: ()->Void
@@ -25,10 +25,8 @@ class GetAnnounceCoordinator:NSObject, Coordinator, ObservableObject {
     }
         
     func start(){
-        
         let homePageVC = UIHostingController(rootView: HomePageView2(delegate: self))
         rootViewController.pushViewController(homePageVC, animated: false)
-            
     }
     
     func ShowFilteredAnnounces(searchText: String, category: String, minPrice: Double, maxPrice: Double, noOlderThanDate: Date? ){
@@ -39,8 +37,6 @@ class GetAnnounceCoordinator:NSObject, Coordinator, ObservableObject {
             let AnnouncesViewVC = UIHostingController(rootView: AnnounceView(isPartOfMainView: false, title: "Announces", isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice))
             rootViewController.pushViewController(AnnouncesViewVC, animated: true)
         }
-        
-        
     }
     
     func showFilterView(){
@@ -49,22 +45,22 @@ class GetAnnounceCoordinator:NSObject, Coordinator, ObservableObject {
         }))
         self.rootViewController.pushViewController(searchViewVC, animated: false)
     }
+   
+}
+//MARK: - AnnounceDetailedView delegate
+extension GetAnnounceCoordinator: AnnounceDetailViewDelegate, showChatViewProtocol{
+    func showChatView(announceId: String, otherUser: UserProfile, currentUser: UserProfile){
+        let chatViewVC = self.getChatViewVC(announceId: announceId, otherUser: otherUser, currentUser: currentUser)
+        self.rootViewController.pushViewController(chatViewVC, animated: true)
+    }
     
     func showAnnounceDetailView(announce: Announce){
-        let announceDetailedViewVC = UIHostingController(rootView: AnnounceDetailedView(announce: announce, delegate: self))
-        
+        let announceDetailedViewVC = self.getAnnounceDetailViewVC(announce: announce)
         rootViewController.pushViewController(announceDetailedViewVC, animated: true)
     }
-    
-    func showChatView(announceId: String, otherUser: UserProfile, currentUser: UserProfile){
-        let chatViewVC = UIHostingController(rootView: ChatView(announceId: announceId, otherUser: otherUser, user: currentUser){
-        })
-        self.rootViewController.pushViewController(chatViewVC, animated: true)
-        
-    }
-    
 }
 
+//MARK: - Navigation controller delegate
 extension GetAnnounceCoordinator: UINavigationControllerDelegate{
     func navigationController(_ navigationController: UINavigationController,
                               willShow viewController: UIViewController,

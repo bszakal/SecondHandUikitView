@@ -4,8 +4,21 @@
 //
 //  Created by Benjamin Szakal on 11/11/22.
 //
-
+import UIKit
 import SwiftUI
+
+protocol AnnounceDetailViewDelegate: AnyObject {
+    var isLoggedIn: Bool {get}
+    var showLoginView: ()->Void {get}
+    func showChatView(announceId: String, otherUser: UserProfile, currentUser: UserProfile)
+    func showAnnounceDetailView(announce: Announce)
+}
+
+extension AnnounceDetailViewDelegate{
+    func getAnnounceDetailViewVC(announce: Announce)->UIHostingController<AnnounceDetailedView>{
+        return UIHostingController(rootView: AnnounceDetailedView(announce: announce, delegate: self))
+    }
+}
 
 struct AnnounceDetailedView: View {
     
@@ -14,7 +27,7 @@ struct AnnounceDetailedView: View {
     
     @StateObject var announceDetailedVM = AnnounceDetailedVM()
     let announce: Announce
-    weak var delegate: GetAnnounceCoordinator?
+    weak var delegate: AnnounceDetailViewDelegate?
     
     var body: some View {
         GeometryReader{ geo in

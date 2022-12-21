@@ -39,9 +39,6 @@ struct SingleAnnounceView: View {
                textView
             }
         }
-//        .sheet(isPresented: $showLoginView) {
-//            LoginView(registerButtonPressed: {}, correctProviderNotNil: {provider in})
-//        }
     }
  
     var textView: some View {
