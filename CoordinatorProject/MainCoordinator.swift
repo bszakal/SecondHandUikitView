@@ -12,6 +12,8 @@ import SwiftUI
 
 class MainCoordinator: Coordinator {
     
+    let window: UIWindow
+    
     var rootViewController: UITabBarController
     @Inject var loginState: LogginStateUikitProtocol!
     
@@ -19,35 +21,14 @@ class MainCoordinator: Coordinator {
     
     var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(window: UIWindow) {
+        self.window = window
         self.rootViewController = UITabBarController()
+        self.window.rootViewController = self.rootViewController
+        
     }
     
     func start() {
-        
-//        let firstCoordinator = FirstTabCoodinator()
-//        firstCoordinator.start()
-//        self.childCoordinators.append(firstCoordinator)
-//        let firstViewController = firstCoordinator.rootViewController
-//        setup(vc: firstViewController,
-//              title: "First Tab",
-//              imageName: "paperplane",
-//              selectedImageName: "paperplane.fill")
-//
-//
-//        let secondCoordinator = SecondTabCoodinator()
-//        secondCoordinator.start()
-//        self.childCoordinators.append(secondCoordinator)
-//        let secondViewController = secondCoordinator.rootViewController
-//        setup(vc: secondViewController,
-//              title: "Second Tab",
-//              imageName: "bell",
-//              selectedImageName: "bell.fill")
-        
-        
-        //self.rootViewController.viewControllers = [firstViewController, secondViewController]
-        //self.rootViewController = UIHostingController(rootView: MainTabView(loginState: loginState))
-        
         
         loginState.isLoggedIn
             .receive(on: DispatchQueue.main)
@@ -56,6 +37,7 @@ class MainCoordinator: Coordinator {
             }
             .store(in: &cancellables)
         
+       
     }
     
     func setupTabBar(isLoggedIn: Bool) {
@@ -70,7 +52,7 @@ class MainCoordinator: Coordinator {
         getAnnounceCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Announces", image: UIImage(systemName: "list.bullet.rectangle.fill"), tag: 0)
         let vcGetAnnounce = getAnnounceCoordinator.rootViewController as UIViewController
         arrayVC.append(vcGetAnnounce)
-        self.childCoordinators.append(getAnnounceCoordinator)
+        //self.childCoordinators.append(getAnnounceCoordinator)
         
         
         if isLoggedIn {
@@ -83,18 +65,21 @@ class MainCoordinator: Coordinator {
             favouriteCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(systemName: "heart.fill"), tag: 1)
             let vcFavourite = favouriteCoordinator.rootViewController as UIViewController
             arrayVC.append(vcFavourite)
+            //self.childCoordinators.append(favouriteCoordinator)
             
             let createAnnounceCoordinator = CreateAnnounceCoordinator()
             createAnnounceCoordinator.start()
             createAnnounceCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Publish", image: UIImage(systemName: "plus.square.fill"), tag: 2)
             let vcCreateAnnounce = createAnnounceCoordinator.rootViewController as UIViewController
             arrayVC.append(vcCreateAnnounce)
+           // self.childCoordinators.append(createAnnounceCoordinator)
             
             let messageCoordinator = MessageCoordinator()
             messageCoordinator.start()
             messageCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Message", image: UIImage(systemName: "envelope"), tag: 3)
             let vcMessage = messageCoordinator.rootViewController as UIViewController
             arrayVC.append(vcMessage)
+            //self.childCoordinators.append(messageCoordinator)
             
             let userCoordinator = UserCoordinator(isLoggedIn: isLoggedIn) {
                 self.showLoginView()
@@ -103,6 +88,7 @@ class MainCoordinator: Coordinator {
             userCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Account", image: UIImage(systemName: "person.crop.circle.fill"), tag: 4)
             let userVc = userCoordinator.rootViewController as UIViewController
             arrayVC.append(userVc)
+            //self.childCoordinators.append(userCoordinator)
             
         } else {
 
@@ -145,7 +131,6 @@ class MainCoordinator: Coordinator {
         } else {
             loginCoordinator[0].start()
             rootViewController.present(loginCoordinator[0].rootViewController, animated: true)
-            print("re-used")
         }
     }
 }

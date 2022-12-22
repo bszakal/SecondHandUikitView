@@ -26,7 +26,6 @@ class ChatVM: ObservableObject {
     }
     
     func suscribeChatLiveData() {
-
         messageGet.chatPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] newValue in

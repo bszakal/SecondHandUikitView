@@ -47,9 +47,9 @@ struct LoginView: View {
                 correctProviderNotNil(provider)
             }
         })
-        
-        .sheet(isPresented: $showRegisterView) {
-            //RegisterEmailView()
+        .onAppear{ loginVM.start()}
+        .onChange(of: loginVM.isSignedIn) { isSignedIn in
+            if isSignedIn {dismiss()}
         }
         
     }
@@ -87,7 +87,6 @@ struct LoginView: View {
     
     var emailRegisterButton: some View {
         Button(action: {
-            //showRegisterView = true
             registerButtonPressed()
         }, label: {
             Text("Register")

@@ -44,6 +44,8 @@ struct MessagesView: View {
                     }
                     .padding()
                 }
+
+        
                 .listStyle(.plain)
                 .navigationTitle("Messages")
                 .navigationBarTitleDisplayMode(.inline)
