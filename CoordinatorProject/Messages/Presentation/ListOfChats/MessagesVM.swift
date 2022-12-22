@@ -29,7 +29,6 @@ class MessagesVM: ObservableObject {
     }
     
     func getMessages() {
-       
         messageGet.chatPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] newValue in

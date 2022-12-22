@@ -18,6 +18,7 @@ protocol FirebaseMessageProtocol {
     func addNewMessage(message: Message)
     func setMessageToReadStatus(messages: [Message])
     func getMessages2(CompletionHandler: @escaping ([(Message, DocChangeType)], Error?)->Void)
+    func cancelCallbacks()
 }
 
 
@@ -49,7 +50,14 @@ class FirebaseMessage: FirebaseMessageProtocol, FirebaseGeneralQuery {
         }
     }
     
+    var listener: ListenerRegistration?
+    
+    func cancelCallbacks(){
+        listener?.remove()
+    }
+    
     func getMessages2(CompletionHandler: @escaping ([(Message, DocChangeType)], Error?)->Void) {
+        
         
         
         Task{
@@ -60,8 +68,8 @@ class FirebaseMessage: FirebaseMessageProtocol, FirebaseGeneralQuery {
             let db = Firestore.firestore()
             
             let query = db.collection("Messages").whereField("ids", arrayContains: success)
-            
-            query.addSnapshotListener { snapshot, err in
+                
+                self.listener = query.addSnapshotListener { snapshot, err in
                 
                 guard let documentsChange = snapshot?.documentChanges else {
                     print(err?.localizedDescription as Any)

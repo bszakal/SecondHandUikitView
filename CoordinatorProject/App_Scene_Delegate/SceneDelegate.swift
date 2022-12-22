@@ -10,19 +10,16 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var applicationCoordintor: ApplicationCoordinator?
-    
-    let loginState = LoginState()
-    
-    @Inject var loginStateUikit: LogginStateUikitProtocol
+    var mainCoordinator: MainCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let applicationCoordintor = ApplicationCoordinator(window: window, loginState: loginState)
-            applicationCoordintor.start()
-          
-            self.applicationCoordintor = applicationCoordintor
+
+            let mainCoordinator = MainCoordinator(window: window)
+            mainCoordinator.start()
+            self.mainCoordinator = mainCoordinator
+            
             window.makeKeyAndVisible()
         }
         

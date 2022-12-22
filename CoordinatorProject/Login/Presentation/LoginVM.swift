@@ -4,7 +4,7 @@
 //
 //  Created by Benjamin Szakal on 31/10/22.
 //
-
+import Combine
 import SwiftUI
 
 @MainActor class LoginVM: ObservableObject {
@@ -20,6 +20,19 @@ import SwiftUI
     
     @Published var correctProvider: CorrectProvider?
     @Published private(set) var emailSignInErrornotification = ""
+    
+    @Published private(set) var isSignedIn: Bool = false
+    private var cancellables = Set<AnyCancellable>()
+    
+    func start(){
+        logger.IsSignedInPublished
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] isSignedIn in
+                self?.isSignedIn = isSignedIn
+            }
+            .store(in: &cancellables)
+        
+    }
     
     func SignInFacebook() {
 //        logger.SignInFederated(provider: Logger.FederatedProvider.Facebook) { email, provider, err in

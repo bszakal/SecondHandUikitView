@@ -37,9 +37,6 @@ class MessageGet: MessageGetProtocol {
         getMessagesForUser2()
     }
     
-    
-  
-    
     private func getIdOtherUser(ids: [String]) async -> String {
         
         let resUserId = await firebaseMEssage.getuserUID()
@@ -76,7 +73,7 @@ class MessageGet: MessageGetProtocol {
     }
     
     func getMessagesForUser2() {
-        
+                
         firebaseMEssage.getMessages2 { messages, err in
             
             if let error = err {
@@ -120,5 +117,9 @@ class MessageGet: MessageGetProtocol {
             return Chat(id: announceId + announceUserId, announceID: announceId, idOtherUser: announceUserId, messages: [])
         }
    }
+    
+    func cancelListener(){
+        firebaseMEssage.cancelCallbacks()
+    }
 
 }
