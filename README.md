@@ -10,22 +10,21 @@
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
 <!-- * [License](#license) -->
 
 
 ## General Information
 - The app let users browse announces posted by other users, add them to their favourite, contact users via a real time chat and post their own announces.
-- SecondHand is developed using SWIFT UI, and firebase for the backend. 15+ screens
-- Followed clean architecture principles, with separation of concerns, dependency injections via Protocols and MVVM pattern. Units tests also available
+- SecondHand is developed using SWIFT UI for the Views, UIkit for navigation, and firebase for the backend. 15+ screens
+- Followed clean architecture principles, with separation of concerns, dependency injections via Protocols and MVVM + Repo + Coordinator pattern
 - Extensive use of asynchronus functions with async/await, combine and callbacks.
-- I have developed this app in order to put into application what I have learnt from classes at the Apple Developer Academy (only Apple academy in Europe), and online tutorials (100 days with swift UI, Stanford CSP193)
+- This project is based on the orginial project SecondHand, is aims to show how you harness the power of SwiftUI while keeping the project in UIkit and benefit from the ability to separate Views from the routing flow to adhere to SOLID principles
 
 
 ## Technologies Used
 - Backend: Firebase Firestore and Firebase Storage for images
-- Swift UI
+- Swift UI, UIkit
 - async/await, Combine
 - 3rd party frameworks: Swinject for dependency injection, NukeUI for async loading/display of images, Quick/Nimble for unit tests,  GoogleSignIn, FacebookSignIn
 
@@ -48,8 +47,8 @@
 
 
 ## Setup
-- When cloning the repo xcode will automatically open the .xcodeproj file, please close and open the xcworkspace file in the same folder.
-- Although most dependencies have been installed using Swift package manager, Quick & Nimble only work when installed via CocoaPod at the moment hence why the xcworkspace file should be used.
+- Just open the .xcodeproj file, not further installation should be required.
+
 
 
 ## Usage
@@ -64,13 +63,8 @@ Hopefully everything should be fairly intuitive and work as you expect a market 
 
 
 ## Project Status
-This project is fairly big and many more features are needed to make it a fully fledge market place, like the ability to pay etc. But I feel the project is big enough to be used as a platform to showcase my skills and have meaningful conversation with companies and recruiter. 
+The goal of this project was to enable me to show how you can benefit from ease of building views with SWFIT UI while keeping the project in UIkit so that Apps currently running on UIkit can use this example to at least start using Swift UI for new screens/features. So if the project is currently in using MVC it should first be changed to MVVM, routing logic should be extracted from the Views and then you can start using Swift ui for new features or replace XIB/viewControllers, file by file without having to much the all App structure at once. I won't keep working on this project as I feel it's big enough to show that this pattern could be useful to many companies.
 
-
-## Room for Improvement
-- I am currently going through unit testing but the unit tests will definitely not cover the whole project as it takes too much time. 
-- But I do feel there are enough unit testing done at the moment to show my understanding in creating mock classes and injecting them in the system under stress in order to test different scenarios.
-- The current unit tests cover asynchronus function with async/await and use combine to test publishers are updated and publish as expected.
 
 ## Contact
 Created by Benjamin SZAKAL, benjamin.szakal1@gmail.com - feel free to contact me!
