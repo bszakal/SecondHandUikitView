@@ -42,8 +42,8 @@ class UserCoordinator:NSObject, Coordinator{
     }
     
     func showFavourite(){
-        let favouriteVC = UIHostingController(rootView: FavouriteView(router: self))
-        rootViewController.pushViewController(favouriteVC, animated: true)
+        let favouriteViewVC = FavouriteViewUikit(router: self)
+        rootViewController.pushViewController(favouriteViewVC, animated: true)
     }
     
     func showMyAnnounces(){

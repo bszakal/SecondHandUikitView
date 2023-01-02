@@ -25,7 +25,7 @@ class FavouriteCoordinator:NSObject, Coordinator{
     }
     
     func start(){
-        let favouriteViewVC = UIHostingController(rootView: FavouriteView(router: self))
+        let favouriteViewVC = FavouriteViewUikit(router: self)
         rootViewController.pushViewController(favouriteViewVC, animated: false)
     }
 }
@@ -51,7 +51,7 @@ extension FavouriteCoordinator: UINavigationControllerDelegate{
                               willShow viewController: UIViewController,
                               animated: Bool) {
         
-        if viewController as? UIHostingController<FavouriteView> != nil {
+        if viewController as? FavouriteViewUikit != nil {
             self.rootViewController.tabBarController?.tabBar.isHidden = false
         } else {
             self.rootViewController.tabBarController?.tabBar.isHidden = true

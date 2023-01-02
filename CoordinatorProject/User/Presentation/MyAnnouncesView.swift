@@ -53,6 +53,42 @@ struct myAnnounceSingleView: View {
     }
 }
 
+struct TextView: View {
+    let announce: Announce
+    
+    var body: some View{
+        VStack(alignment:.leading, spacing: 5){
+            VStack(alignment:.leading){
+                Text(announce.title)
+                    .font(.headline)
+                
+                HStack(spacing:2){
+                    Text(announce.price, format: .number)
+                    Text(Locale.current.currencySymbol ?? "EUR")
+                }
+                .font(.headline)
+            }
+            
+            Text(announce.category)
+                .font(.body)
+                .fontWeight(.bold)
+                .foregroundColor(.secondary)
+                
+            VStack(alignment:.leading){
+                Text(announce.city_PostCode)
+                Text(announce.lastUpdatedAt ?? Date(), format: .dateTime)
+            }
+            .font(.subheadline)
+           
+            Text(announce.deliveryType)
+                .font(.subheadline)
+                .underline()
+                
+        }
+
+    }
+}
+
 
 
 

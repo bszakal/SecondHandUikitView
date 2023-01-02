@@ -50,7 +50,6 @@
 		614770B9294A049D00E988CD /* FavouriteDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147704E294A049C00E988CD /* FavouriteDI.swift */; };
 		614770BA294A049D00E988CD /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477050294A049C00E988CD /* Favourite.swift */; };
 		614770BB294A049D00E988CD /* FavouriteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477052294A049C00E988CD /* FavouriteVM.swift */; };
-		614770BC294A049D00E988CD /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477053294A049C00E988CD /* FavouriteView.swift */; };
 		614770BD294A049D00E988CD /* FirebaseUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477056294A049C00E988CD /* FirebaseUserProfile.swift */; };
 		614770BE294A049D00E988CD /* GetUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477058294A049C00E988CD /* GetUserProfile.swift */; };
 		614770BF294A049D00E988CD /* WriteUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477059294A049C00E988CD /* WriteUserProfile.swift */; };
@@ -109,6 +108,11 @@
 		61633949294A0280006A10A5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 61633948294A0280006A10A5 /* FirebaseFirestoreSwift */; };
 		6163394B294A0280006A10A5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6163394A294A0280006A10A5 /* FirebaseStorage */; };
 		6163394E294A0321006A10A5 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 6163394D294A0321006A10A5 /* Swinject */; };
+		61B546DE295AE6C50083C71F /* FavouriteViewUikit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B546DC295AE6C50083C71F /* FavouriteViewUikit.swift */; };
+		61B546DF295AE6C50083C71F /* FavouriteViewUikit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546DD295AE6C50083C71F /* FavouriteViewUikit.xib */; };
+		61B546E2295AEFB90083C71F /* FavouriteViewUikitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B546E0295AEFB90083C71F /* FavouriteViewUikitCell.swift */; };
+		61B546E3295AEFB90083C71F /* FavouriteViewUikitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546E1295AEFB90083C71F /* FavouriteViewUikitCell.xib */; };
+		61B546EA295B3D2C0083C71F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 61B546E9295B3D2C0083C71F /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +161,6 @@
 		6147704E294A049C00E988CD /* FavouriteDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteDI.swift; sourceTree = "<group>"; };
 		61477050294A049C00E988CD /* Favourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
 		61477052294A049C00E988CD /* FavouriteVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteVM.swift; sourceTree = "<group>"; };
-		61477053294A049C00E988CD /* FavouriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
 		61477056294A049C00E988CD /* FirebaseUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUserProfile.swift; sourceTree = "<group>"; };
 		61477058294A049C00E988CD /* GetUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserProfile.swift; sourceTree = "<group>"; };
 		61477059294A049C00E988CD /* WriteUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteUserProfile.swift; sourceTree = "<group>"; };
@@ -208,6 +211,10 @@
 		61477117294EF08B00E988CD /* SearchFilterView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView2.swift; sourceTree = "<group>"; };
 		61477119294F013300E988CD /* HomePageView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView2.swift; sourceTree = "<group>"; };
 		6147711B2952FA2300E988CD /* FavouriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCoordinator.swift; sourceTree = "<group>"; };
+		61B546DC295AE6C50083C71F /* FavouriteViewUikit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewUikit.swift; sourceTree = "<group>"; };
+		61B546DD295AE6C50083C71F /* FavouriteViewUikit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteViewUikit.xib; sourceTree = "<group>"; };
+		61B546E0295AEFB90083C71F /* FavouriteViewUikitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewUikitCell.swift; sourceTree = "<group>"; };
+		61B546E1295AEFB90083C71F /* FavouriteViewUikitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteViewUikitCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +228,7 @@
 				6163394B294A0280006A10A5 /* FirebaseStorage in Frameworks */,
 				614770E9294A0E6E00E988CD /* GoogleSignInSwift in Frameworks */,
 				61633947294A0280006A10A5 /* FirebaseFirestore in Frameworks */,
+				61B546EA295B3D2C0083C71F /* SDWebImage in Frameworks */,
 				61633949294A0280006A10A5 /* FirebaseFirestoreSwift in Frameworks */,
 				614770E7294A0E6E00E988CD /* GoogleSignIn in Frameworks */,
 			);
@@ -540,8 +548,11 @@
 			isa = PBXGroup;
 			children = (
 				61B546DA29544D320083C71F /* Coordinator */,
-				61477053294A049C00E988CD /* FavouriteView.swift */,
 				61477052294A049C00E988CD /* FavouriteVM.swift */,
+				61B546DC295AE6C50083C71F /* FavouriteViewUikit.swift */,
+				61B546DD295AE6C50083C71F /* FavouriteViewUikit.xib */,
+				61B546E0295AEFB90083C71F /* FavouriteViewUikitCell.swift */,
+				61B546E1295AEFB90083C71F /* FavouriteViewUikitCell.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -868,6 +879,7 @@
 				6163394D294A0321006A10A5 /* Swinject */,
 				614770E6294A0E6E00E988CD /* GoogleSignIn */,
 				614770E8294A0E6E00E988CD /* GoogleSignInSwift */,
+				61B546E9295B3D2C0083C71F /* SDWebImage */,
 			);
 			productName = CoordinatorProject;
 			productReference = 17ECF62D280C438F00D3E87F /* CoordinatorProject.app */;
@@ -902,6 +914,7 @@
 				61633943294A0280006A10A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				6163394C294A0321006A10A5 /* XCRemoteSwiftPackageReference "Swinject" */,
 				614770E5294A0E6E00E988CD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				61B546E8295B3D2C0083C71F /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 17ECF62E280C438F00D3E87F /* Products */;
 			projectDirPath = "";
@@ -917,7 +930,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B546E3295AEFB90083C71F /* FavouriteViewUikitCell.xib in Resources */,
 				17ECF63D280C438F00D3E87F /* LaunchScreen.storyboard in Resources */,
+				61B546DF295AE6C50083C71F /* FavouriteViewUikit.xib in Resources */,
 				17ECF63A280C438F00D3E87F /* Assets.xcassets in Resources */,
 				614770DF294A0B7000E988CD /* GoogleService-Info.plist in Resources */,
 			);
@@ -930,6 +945,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B546E2295AEFB90083C71F /* FavouriteViewUikitCell.swift in Sources */,
 				614770C5294A049D00E988CD /* UserProfileVM.swift in Sources */,
 				614770D1294A049D00E988CD /* MessagesVM.swift in Sources */,
 				6147708E294A049D00E988CD /* FirebaseAnnounce.swift in Sources */,
@@ -951,6 +967,7 @@
 				61477095294A049D00E988CD /* AnnounceDetailedView.swift in Sources */,
 				614770BF294A049D00E988CD /* WriteUserProfile.swift in Sources */,
 				614770DB294A049D00E988CD /* Category.swift in Sources */,
+				61B546DE295AE6C50083C71F /* FavouriteViewUikit.swift in Sources */,
 				6147710E294DD8CD00E988CD /* SelectionTitle2.swift in Sources */,
 				61477093294A049D00E988CD /* SingleAnnounceView.swift in Sources */,
 				614770CA294A049D00E988CD /* MessageCreateUpdate.swift in Sources */,
@@ -1019,7 +1036,6 @@
 				61477116294EEBC500E988CD /* GetAnnounceCoordinator.swift in Sources */,
 				614770CD294A049D00E988CD /* ChatVM.swift in Sources */,
 				61477110294DE03B00E988CD /* SelectionAddress2.swift in Sources */,
-				614770BC294A049D00E988CD /* FavouriteView.swift in Sources */,
 				614770BA294A049D00E988CD /* Favourite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1264,6 +1280,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		61B546E8295B3D2C0083C71F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1306,6 +1330,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6163394C294A0321006A10A5 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		61B546E9295B3D2C0083C71F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61B546E8295B3D2C0083C71F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
