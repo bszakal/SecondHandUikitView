@@ -99,7 +99,6 @@ class FavouriteViewUikitCell: UITableViewCell {
             imageDisplayed -= 1
             setUpPhotoIndicator()
         }
-        
     }
     
 //MARK: - Heart Image set up + gesture
