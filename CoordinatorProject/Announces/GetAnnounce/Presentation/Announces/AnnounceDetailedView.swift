@@ -15,8 +15,12 @@ protocol AnnounceDetailViewDelegate: AnyObject {
 }
 
 extension AnnounceDetailViewDelegate{
-    func getAnnounceDetailViewVC(announce: Announce)->UIHostingController<AnnounceDetailedView>{
-        return UIHostingController(rootView: AnnounceDetailedView(announce: announce, delegate: self))
+//    func getAnnounceDetailViewVC(announce: Announce)->UIHostingController<AnnounceDetailedView>{
+//        return UIHostingController(rootView: AnnounceDetailedView(announce: announce, delegate: self))
+//    }
+    
+    func getAnnounceDetailViewVC(announce: Announce)->UIViewController{
+        return AnnounceDetailedViewUikit(announce: announce)
     }
 }
 
