@@ -8,6 +8,21 @@ import Combine
 import SDWebImage
 import UIKit
 
+protocol AnnounceDetailViewDelegate: AnyObject {
+    var isLoggedIn: Bool {get}
+    var showLoginView: ()->Void {get}
+    func showChatView(announceId: String, otherUser: UserProfile, currentUser: UserProfile)
+    func showAnnounceDetailView(announce: Announce)
+}
+
+extension AnnounceDetailViewDelegate{
+    func getAnnounceDetailViewVC(announce: Announce)->UIViewController{
+        let vc = AnnounceDetailedViewUikit(announce: announce)
+        vc.delegate = self
+        return vc
+    }
+}
+
 class AnnounceDetailedViewUikit: UIViewController {
 
     
@@ -15,6 +30,13 @@ class AnnounceDetailedViewUikit: UIViewController {
     @IBOutlet weak var topImage: UIImageView!
     @IBOutlet weak var userProfilePicture: UIImageView!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var announceUserName: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var conditionLabel: UILabel!
+    @IBOutlet weak var deliveryLabel: UILabel!
     
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var mainStackView: UIStackView!
@@ -23,6 +45,8 @@ class AnnounceDetailedViewUikit: UIViewController {
     
     let announce: Announce
     let announceDetailedVM = AnnounceDetailedVM()
+    
+    weak var delegate: AnnounceDetailViewDelegate?
     
     var cancellables = Set<AnyCancellable>()
     
@@ -40,13 +64,18 @@ class AnnounceDetailedViewUikit: UIViewController {
         
         scrollview.contentInsetAdjustmentBehavior = .never
 
-        topImage.sd_setImage(with: URL(string: announce.imageRefs[0]), placeholderImage: UIImage(systemName: "camera"))
-        userProfilePicture.sd_setImage(with: URL(string: announce.imageRefs[1]), placeholderImage: UIImage(systemName: "camera"))
-       
+        //set up swipe gesture to change photo and the photo indicator at the bottom
         setUpSwipeGesture()
         setUpPhotoIndicator()
         
+        //for the VM to fetch data
+        announceDetailedVM.isAFavourite(announce: announce)
+        announceDetailedVM.getUserDetailsForAnnounce(announce: announce)
+        announceDetailedVM.getCurrentUserDetails()
+        
+        //fill view labels, images and HeartView
         suscribeToIsAFavourite()
+        fillLabelsAnnounceDetails()
 
     }
     
@@ -56,6 +85,26 @@ class AnnounceDetailedViewUikit: UIViewController {
         var insets = view.safeAreaInsets
         insets.top = 0
         scrollview.contentInset = insets
+    }
+    
+    func fillLabelsAnnounceDetails(){
+        
+        topImage.sd_setImage(with: URL(string: announce.imageRefs[0]), placeholderImage: UIImage(systemName: "camera"))
+        
+        titleLabel.text = announce.title
+        priceLabel.text = String(announce.price) + "€"
+        dateLabel.text = announce.lastUpdatedAt?.formatted(date: .abbreviated, time: .shortened)
+        descriptionLabel.text = announce.description
+        conditionLabel.text =  announce.condition
+        deliveryLabel.text = announce.deliveryType
+        
+        announceDetailedVM.$userProfileForAnnounce
+            .receive(on: DispatchQueue.main)
+            .sink{ [weak self] profile in
+                self?.userProfilePicture.sd_setImage(with: URL(string: profile.profilePictureUrlStr), placeholderImage: UIImage(systemName: "camera"))
+                self?.announceUserName.text = profile.pseudo
+            }
+            .store(in: &cancellables)
     }
     
     //MARK: - Swipe gesture for changing picture
@@ -146,11 +195,14 @@ class AnnounceDetailedViewUikit: UIViewController {
         }
         
         @objc func imageTapped(_ sender: UITapGestureRecognizer) {
-            announceDetailedVM.AddOrRemoveFromFavourite(announce: announce)
+            if delegate!.isLoggedIn{
+                announceDetailedVM.AddOrRemoveFromFavourite(announce: announce)
+            } else {
+                delegate!.showLoginView()
+            }
         }
     
     private func suscribeToIsAFavourite(){
-        announceDetailedVM.isAFavourite(announce: announce)
         announceDetailedVM.$isAFavourite
             .receive(on: DispatchQueue.main)
             .sink{ [weak self] _ in
@@ -160,4 +212,16 @@ class AnnounceDetailedViewUikit: UIViewController {
             .store(in: &cancellables)
     }
 
+    @IBAction func messageButtonPressed(_ sender: UIButton) {
+        if delegate!.isLoggedIn{
+            delegate!.showChatView(announceId: announce.id ?? "", otherUser: announceDetailedVM.userProfileForAnnounce, currentUser: announceDetailedVM.currentUserProfile)
+        } else {
+            delegate!.showLoginView()
+        }
+    }
+    
+    @IBAction func buyButtonPressed(_ sender: UIButton) {
+        //TO DO
+    }
+    
 }
