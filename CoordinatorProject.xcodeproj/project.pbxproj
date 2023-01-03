@@ -20,7 +20,6 @@
 		61477092294A049D00E988CD /* AnnounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477012294A049C00E988CD /* AnnounceView.swift */; };
 		61477093294A049D00E988CD /* SingleAnnounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477014294A049C00E988CD /* SingleAnnounceView.swift */; };
 		61477094294A049D00E988CD /* AnnouncesListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477015294A049C00E988CD /* AnnouncesListVM.swift */; };
-		61477095294A049D00E988CD /* AnnounceDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477016294A049C00E988CD /* AnnounceDetailedView.swift */; };
 		61477096294A049D00E988CD /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477018294A049C00E988CD /* SearchFilterView.swift */; };
 		61477097294A049D00E988CD /* SearchFilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477019294A049C00E988CD /* SearchFilterVM.swift */; };
 		61477099294A049D00E988CD /* CreateAnnounceFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147701D294A049C00E988CD /* CreateAnnounceFirebase.swift */; };
@@ -133,7 +132,6 @@
 		61477012294A049C00E988CD /* AnnounceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceView.swift; sourceTree = "<group>"; };
 		61477014294A049C00E988CD /* SingleAnnounceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnnounceView.swift; sourceTree = "<group>"; };
 		61477015294A049C00E988CD /* AnnouncesListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncesListVM.swift; sourceTree = "<group>"; };
-		61477016294A049C00E988CD /* AnnounceDetailedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceDetailedView.swift; sourceTree = "<group>"; };
 		61477018294A049C00E988CD /* SearchFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
 		61477019294A049C00E988CD /* SearchFilterVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterVM.swift; sourceTree = "<group>"; };
 		6147701D294A049C00E988CD /* CreateAnnounceFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAnnounceFirebase.swift; sourceTree = "<group>"; };
@@ -338,11 +336,10 @@
 				61477119294F013300E988CD /* HomePageView2.swift */,
 				61477012294A049C00E988CD /* AnnounceView.swift */,
 				61477015294A049C00E988CD /* AnnouncesListVM.swift */,
-				61477016294A049C00E988CD /* AnnounceDetailedView.swift */,
-				61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */,
-				61477013294A049C00E988CD /* Components */,
 				61B546EB29641AE70083C71F /* AnnounceDetailedViewUikit.swift */,
 				61B546EC29641AE70083C71F /* AnnounceDetailedViewUikit.xib */,
+				61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */,
+				61477013294A049C00E988CD /* Components */,
 			);
 			path = Announces;
 			sourceTree = "<group>";
@@ -971,7 +968,6 @@
 				61477118294EF08B00E988CD /* SearchFilterView2.swift in Sources */,
 				614770EF294B0F4400E988CD /* LoginCoordinator.swift in Sources */,
 				614770D9294A049D00E988CD /* FirebaseCategories.swift in Sources */,
-				61477095294A049D00E988CD /* AnnounceDetailedView.swift in Sources */,
 				614770BF294A049D00E988CD /* WriteUserProfile.swift in Sources */,
 				614770DB294A049D00E988CD /* Category.swift in Sources */,
 				61B546DE295AE6C50083C71F /* FavouriteViewUikit.swift in Sources */,

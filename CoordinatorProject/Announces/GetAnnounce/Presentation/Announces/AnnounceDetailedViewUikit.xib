@@ -10,8 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnnounceDetailedViewUikit" customModule="CoordinatorProject" customModuleProvider="target">
             <connections>
+                <outlet property="announceUserName" destination="yFq-Do-LeW" id="ZK5-wj-dHE"/>
+                <outlet property="conditionLabel" destination="8aO-oE-esQ" id="xT8-wh-0bl"/>
+                <outlet property="dateLabel" destination="7JJ-vm-FE0" id="72i-TS-mqb"/>
+                <outlet property="deliveryLabel" destination="Rpu-25-eEW" id="Qt2-vM-DSB"/>
+                <outlet property="descriptionLabel" destination="c1K-BM-Fpv" id="Emz-FQ-Qov"/>
                 <outlet property="mainStackView" destination="ohN-Te-aa3" id="iAn-4U-nMR"/>
+                <outlet property="priceLabel" destination="a5G-TN-lHC" id="RbL-qO-sne"/>
                 <outlet property="scrollview" destination="5jF-53-PRN" id="F9f-hD-2SD"/>
+                <outlet property="titleLabel" destination="gRO-6w-qQn" id="u6T-oI-Bb9"/>
                 <outlet property="topImage" destination="txD-uJ-AQc" id="XKt-o1-WKh"/>
                 <outlet property="userProfilePicture" destination="6Zl-PM-e2X" id="qp3-uS-idd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -264,12 +271,18 @@
                                                     <integer key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="messageButtonPressed:" destination="-1" eventType="touchUpInside" id="LCp-py-4gO"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIO-h7-gRK">
                                             <rect key="frame" x="195" y="0.0" width="195" height="75"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Buy"/>
+                                            <connections>
+                                                <action selector="buyButtonPressed:" destination="-1" eventType="touchUpInside" id="Lkk-OK-48a"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
