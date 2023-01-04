@@ -31,11 +31,15 @@ class GetAnnounceCoordinator:NSObject, Coordinator {
     
     func ShowFilteredAnnounces(searchText: String, category: String, minPrice: Double, maxPrice: Double, noOlderThanDate: Date? ){
         if let searchDate = noOlderThanDate{
-            let AnnouncesViewVC = UIHostingController(rootView: AnnounceView(isPartOfMainView: false, title: "Announces", isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice, noOlderThanDate: searchDate))
-            rootViewController.pushViewController(AnnouncesViewVC, animated: true)
+//            let AnnouncesViewVC = UIHostingController(rootView: AnnounceView(isPartOfMainView: false, title: "Announces", isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice, noOlderThanDate: searchDate))
+//            rootViewController.pushViewController(AnnouncesViewVC, animated: true)
+            let announceViewVC = AnnouncesListViewUikit(coordinator: self)
+            rootViewController.pushViewController(announceViewVC, animated: true)
         } else {
-            let AnnouncesViewVC = UIHostingController(rootView: AnnounceView(isPartOfMainView: false, title: "Announces", isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice))
-            rootViewController.pushViewController(AnnouncesViewVC, animated: true)
+//            let AnnouncesViewVC = UIHostingController(rootView: AnnounceView(isPartOfMainView: false, title: "Announces", isSearchFiltered: true, searchText: searchText, category: category, minPrice: minPrice, maxPrice: maxPrice))
+//            rootViewController.pushViewController(AnnouncesViewVC, animated: true)
+            let announceViewVC = AnnouncesListViewUikit(coordinator: self)
+            rootViewController.pushViewController(announceViewVC, animated: true)
         }
     }
     
