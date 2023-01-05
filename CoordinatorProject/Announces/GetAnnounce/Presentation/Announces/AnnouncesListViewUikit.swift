@@ -10,6 +10,15 @@ import UIKit
 
 class AnnouncesListViewUikit: UIViewController {
 
+    @IBOutlet weak var filterStackView: UIStackView!
+    @IBOutlet weak var filtersOnlyStack: UIStackView!
+    
+    let isSearchFiltered: Bool
+    let searchText: String
+    let category: String
+    let minPrice: Double
+    let maxPrice: Double
+    let noOlderThanDate: Date
     
     let announceListVM = AnnouncesListVM()
     
@@ -17,7 +26,15 @@ class AnnouncesListViewUikit: UIViewController {
     
     var cancellables = Set<AnyCancellable>()
     
-    init(coordinator: GetAnnounceCoordinator) {
+    init(coordinator: GetAnnounceCoordinator, isSearchFiltered: Bool = false, searchText: String = "", category: String = "Any", minPrice: Double = 0, maxPrice: Double = 1000, noOlderThanDate: Date = Calendar.current.date(byAdding: .day, value: -300, to: Date()) ?? Date()) {
+        
+        self.isSearchFiltered = isSearchFiltered
+        self.searchText = searchText
+        self.category =  category
+        self.minPrice = minPrice
+        self.maxPrice = maxPrice
+        self.noOlderThanDate = noOlderThanDate
+        
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,6 +61,8 @@ class AnnouncesListViewUikit: UIViewController {
         suscribeToFavouriteList()
         
         
+        fillFilterStack()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,14 +86,59 @@ class AnnouncesListViewUikit: UIViewController {
             }
             .store(in: &cancellables)
     }
+    
+    func fillFilterStack(){
+        filtersOnlyStack.subviews.forEach({ $0.removeFromSuperview() })
+        if isSearchFiltered == false {
+            filterStackView.isHidden = true
+        } else {
+            if category != "Any" {
+                let categoryLabel = UILabel()
+                categoryLabel.text = "Category: \(category)"
+                filtersOnlyStack.addArrangedSubview(createBackGroundViewForFilter(label: categoryLabel))
+            }
+            
+            if minPrice > 0 {
+                let minPriceLabel = UILabel()
+                minPriceLabel.text = "Min price: \(String(minPrice))"
+                filtersOnlyStack.addArrangedSubview(createBackGroundViewForFilter(label: minPriceLabel))
+            }
+            
+            if maxPrice < 1000 {
+                let maxPriceLabel = UILabel()
+                maxPriceLabel.text = "Max price: \(String(maxPrice))"
+                filtersOnlyStack.addArrangedSubview(createBackGroundViewForFilter(label: maxPriceLabel))
+            }
+        }
+    }
 
-
+    func createBackGroundViewForFilter(label: UILabel) ->UIView {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(label)
+        
+        let padding: CGFloat = 6
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+        ])
+        
+        return view
+    }
+    
 }
 
 
 extension AnnouncesListViewUikit: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == announceListVM.announces.count - 1 {
+        if indexPath.row == announceListVM.announces.count - 1 && isSearchFiltered == false{
             announceListVM.checkForMoreAnnouces()
         }
     }
