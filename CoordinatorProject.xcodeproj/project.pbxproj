@@ -118,6 +118,10 @@
 		61B546F229657F6B0083C71F /* AnnounceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546F029657F6B0083C71F /* AnnounceCell.xib */; };
 		61B546F5296588730083C71F /* AnnouncesListViewUikit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B546F3296588730083C71F /* AnnouncesListViewUikit.swift */; };
 		61B546F6296588730083C71F /* AnnouncesListViewUikit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546F4296588730083C71F /* AnnouncesListViewUikit.xib */; };
+		61B546F92966C73D0083C71F /* HomePageUIkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B546F72966C73D0083C71F /* HomePageUIkit.swift */; };
+		61B546FA2966C73D0083C71F /* HomePageUIkit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546F82966C73D0083C71F /* HomePageUIkit.xib */; };
+		61B546FD2966CFF20083C71F /* HomePageUikitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B546FB2966CFF20083C71F /* HomePageUikitTest.swift */; };
+		61B546FE2966CFF20083C71F /* HomePageUikitTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546FC2966CFF20083C71F /* HomePageUikitTest.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -225,6 +229,10 @@
 		61B546F029657F6B0083C71F /* AnnounceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnounceCell.xib; sourceTree = "<group>"; };
 		61B546F3296588730083C71F /* AnnouncesListViewUikit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncesListViewUikit.swift; sourceTree = "<group>"; };
 		61B546F4296588730083C71F /* AnnouncesListViewUikit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnouncesListViewUikit.xib; sourceTree = "<group>"; };
+		61B546F72966C73D0083C71F /* HomePageUIkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageUIkit.swift; sourceTree = "<group>"; };
+		61B546F82966C73D0083C71F /* HomePageUIkit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageUIkit.xib; sourceTree = "<group>"; };
+		61B546FB2966CFF20083C71F /* HomePageUikitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageUikitTest.swift; sourceTree = "<group>"; };
+		61B546FC2966CFF20083C71F /* HomePageUikitTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageUikitTest.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +360,10 @@
 				61B546F029657F6B0083C71F /* AnnounceCell.xib */,
 				61B546F3296588730083C71F /* AnnouncesListViewUikit.swift */,
 				61B546F4296588730083C71F /* AnnouncesListViewUikit.xib */,
+				61B546F72966C73D0083C71F /* HomePageUIkit.swift */,
+				61B546F82966C73D0083C71F /* HomePageUIkit.xib */,
+				61B546FB2966CFF20083C71F /* HomePageUikitTest.swift */,
+				61B546FC2966CFF20083C71F /* HomePageUikitTest.xib */,
 			);
 			path = Announces;
 			sourceTree = "<group>";
@@ -948,8 +960,10 @@
 				61B546EE29641AE70083C71F /* AnnounceDetailedViewUikit.xib in Resources */,
 				61B546E3295AEFB90083C71F /* FavouriteViewUikitCell.xib in Resources */,
 				61B546F6296588730083C71F /* AnnouncesListViewUikit.xib in Resources */,
+				61B546FA2966C73D0083C71F /* HomePageUIkit.xib in Resources */,
 				17ECF63D280C438F00D3E87F /* LaunchScreen.storyboard in Resources */,
 				61B546DF295AE6C50083C71F /* FavouriteViewUikit.xib in Resources */,
+				61B546FE2966CFF20083C71F /* HomePageUikitTest.xib in Resources */,
 				61B546F229657F6B0083C71F /* AnnounceCell.xib in Resources */,
 				17ECF63A280C438F00D3E87F /* Assets.xcassets in Resources */,
 				614770DF294A0B7000E988CD /* GoogleService-Info.plist in Resources */,
@@ -994,6 +1008,7 @@
 				614770AD294A049D00E988CD /* FirebaseSignIn.swift in Sources */,
 				614770AC294A049D00E988CD /* fbSignIn.swift in Sources */,
 				614770CB294A049D00E988CD /* MessageDI.swift in Sources */,
+				61B546F92966C73D0083C71F /* HomePageUIkit.swift in Sources */,
 				61477102294B744300E988CD /* MessageCoordinator.swift in Sources */,
 				614770AB294A049D00E988CD /* GoogleSignIn.swift in Sources */,
 				17ECF631280C438F00D3E87F /* AppDelegate.swift in Sources */,
@@ -1056,6 +1071,7 @@
 				61477116294EEBC500E988CD /* GetAnnounceCoordinator.swift in Sources */,
 				614770CD294A049D00E988CD /* ChatVM.swift in Sources */,
 				61477110294DE03B00E988CD /* SelectionAddress2.swift in Sources */,
+				61B546FD2966CFF20083C71F /* HomePageUikitTest.swift in Sources */,
 				614770BA294A049D00E988CD /* Favourite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

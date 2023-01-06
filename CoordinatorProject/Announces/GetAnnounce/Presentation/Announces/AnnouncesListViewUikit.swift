@@ -19,6 +19,7 @@ class AnnouncesListViewUikit: UIViewController {
     let minPrice: Double
     let maxPrice: Double
     let noOlderThanDate: Date
+    let isScrollable: Bool
     
     let announceListVM = AnnouncesListVM()
     
@@ -26,7 +27,7 @@ class AnnouncesListViewUikit: UIViewController {
     
     var cancellables = Set<AnyCancellable>()
     
-    init(coordinator: GetAnnounceCoordinator, isSearchFiltered: Bool = false, searchText: String = "", category: String = "Any", minPrice: Double = 0, maxPrice: Double = 1000, noOlderThanDate: Date = Calendar.current.date(byAdding: .day, value: -300, to: Date()) ?? Date()) {
+    init(coordinator: GetAnnounceCoordinator, isSearchFiltered: Bool = false, searchText: String = "", category: String = "Any", minPrice: Double = 0, maxPrice: Double = 1000, noOlderThanDate: Date = Calendar.current.date(byAdding: .day, value: -300, to: Date()) ?? Date(), isScrollable: Bool = true) {
         
         self.isSearchFiltered = isSearchFiltered
         self.searchText = searchText
@@ -34,6 +35,7 @@ class AnnouncesListViewUikit: UIViewController {
         self.minPrice = minPrice
         self.maxPrice = maxPrice
         self.noOlderThanDate = noOlderThanDate
+        self.isScrollable = isScrollable
         
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -53,10 +55,20 @@ class AnnouncesListViewUikit: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "AnnounceCell", bundle: nil), forCellWithReuseIdentifier: "AnnounceCell")
+        collectionView.isScrollEnabled = isScrollable
         
+        //Bind to VM
         suscribeToAnnouncesList()
+        
+        //Bind VM to Repo
         announceListVM.suscribeToAnnounceRepoArray()
-        announceListVM.CheckNewAnnounces()
+        
+        //Get announces
+        if isSearchFiltered{
+            announceListVM.getAnnouncesFiltered(searchText: searchText, priceStart: minPrice, priceEnd: maxPrice, category: category, startDate: noOlderThanDate)
+        }else{
+            announceListVM.CheckNewAnnounces()
+        }
         
         suscribeToFavouriteList()
         
