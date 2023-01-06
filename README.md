@@ -16,21 +16,25 @@
 
 ## General Information
 - The app let users browse announces posted by other users, add them to their favourite, contact users via a real time chat and post their own announces.
-- SecondHand is developed using SWIFT UI for the Views, UIkit for navigation, and firebase for the backend. 15+ screens
+- SecondHand is developed using SWIFT UI & UIkit for the Views, UIkit for navigation, and firebase for the backend. 15+ screens
 - Followed clean architecture principles, with separation of concerns, dependency injections via Protocols and MVVM + Repo + Coordinator pattern
 - Extensive use of asynchronus functions with async/await, combine and callbacks.
-- This project is based on the orginial project SecondHand, is aims to show how you harness the power of SwiftUI while keeping the project in UIkit and benefit from the ability to separate Views from the routing flow to adhere to SOLID principles
+- This is the 3rd part of my project of building a market place App for iOS with Swift, the 1st one SecondHand with done 100% with SwiftUI, the 2nd one SecondHandUIkit was using UIkit for the App cycle and the navigation between views but the views themselves were in SwiftUI and for this project I have replaced the Views in the Announce and Favourite sub-flows with UIkit views to showcase my skills and understanding of UIKit and show how you can easily mix UIkit and SwiftUI to benefit the most from both frameworks once you have implemented the right architecture (MVVM + Repo + Coordinator).
+- To be noted that for the views I have replaced with UIkit not a single line of code was changed in their view models showing how easily you can mix different UI frameworks with this design pattern using combine for reactive programming.
+- In my UIkit views I have used UITableViews & UICollectionViews with custom cells, vertical and horizontal scroll views, searchBar and reusable viewControllers as subview of another Viewcontroller, tapGesture, swipeGesture etc.. These elements are all bound to the VM using combine.
+- I use one xib file per view (2 if customm cell is needed) to avoid merge conflict, to limit boiler plate code with big view controllers with too many constraints and programmatic layout where necessary resulting in small View Controllers.
+- The views in the Screenshot section are UIkit
 
 
 ## Technologies Used
 - Backend: Firebase Firestore and Firebase Storage for images
 - Swift UI, UIkit
 - async/await, Combine
-- 3rd party frameworks: Swinject for dependency injection, NukeUI for async loading/display of images, Quick/Nimble for unit tests,  GoogleSignIn, FacebookSignIn
+- 3rd party frameworks: Swinject for dependency injection, NukeUI & SDweb for async loading/display of images, GoogleSignIn, FacebookSignIn
 
 ## Features
-- Infinite scroll view with pagination, and pull to refresh announces, and async loading of images
-- Log in with Google, Facebook or email
+- Infinite scroll view with pagination and async loading of images
+- Log in with Google or email
 - Create you own announce
 - Manage your favourites
 - Real time chat with many different users regarding their announces or the one you created. Automatic scroll to most recent message and show unread messages count
@@ -41,8 +45,12 @@
 
 
 ## Screenshots
-<img src="https://user-images.githubusercontent.com/114009067/206210960-71675dcc-5068-4211-8d11-db80b968b329.png" width="325"/> <img src="https://user-images.githubusercontent.com/114009067/206210700-2f37a4e9-1739-46bb-b98b-92c46d57495e.png" width="325"/> <img src="https://user-images.githubusercontent.com/114009067/206213312-b13e164e-9269-44aa-b518-58970d9a6ec4.png" width="325"/>
-<img src="https://user-images.githubusercontent.com/114009067/206213901-87ffd1ce-e21e-4618-91af-f5cfa9d01ddc.png" width="325"/> <img src="https://user-images.githubusercontent.com/114009067/206216250-e2942f7e-94e7-4021-90de-22f65a4ef13c.png" width="325"/> <img src="https://user-images.githubusercontent.com/114009067/206216758-f47cc0a8-6e00-4d64-8b78-075c393907f4.png" width="325"/>
+<img src="https://user-images.githubusercontent.com/114009067/206210960-71675dcc-5068-4211-8d11-db80b968b329.png" width="325"/> <img src="https://user-images.githubusercontent.com/114009067/206213312-b13e164e-9269-44aa-b518-58970d9a6ec4.png" width="325"/>
+<img src="https://user-images.githubusercontent.com/114009067/211019568-34ef54ad-a51f-475a-963f-000f67557ab6.png" width="325"/>
+<img src="https://user-images.githubusercontent.com/114009067/211019778-553eb52e-2b4a-4dd4-9faa-aaa7583acb19.png" width="325"/>
+
+
+
 
 
 
@@ -63,7 +71,8 @@ Hopefully everything should be fairly intuitive and work as you expect a market 
 
 
 ## Project Status
-The goal of this project was to enable me to show how you can benefit from ease of building views with SWFIT UI while keeping the project in UIkit so that Apps currently running on UIkit can use this example to at least start using Swift UI for new screens/features. So if the project is currently in using MVC it should first be changed to MVVM, routing logic should be extracted from the Views and then you can start using Swift ui for new features or replace XIB/viewControllers, file by file without having to much the all App structure at once. I won't keep working on this project as I feel it's big enough to show that this pattern could be useful to many companies.
+I will not keep working on this project as I believe it is big enough to showcase my skills of SwiftUI, UIkit, design pattern and reactive programming. 
+
 
 
 ## Contact
