@@ -25,7 +25,9 @@ class GetAnnounceCoordinator:NSObject, Coordinator {
     }
         
     func start(){
-        let homePageVC = UIHostingController(rootView: HomePageView2(delegate: self))
+      //  let homePageVC = UIHostingController(rootView: HomePageView2(delegate: self))
+//        let homePageVC = HomePageUikitTest(coordinator: self)
+        let homePageVC = HomePageUIkit(coordinator: self)
         rootViewController.pushViewController(homePageVC, animated: false)
     }
     
