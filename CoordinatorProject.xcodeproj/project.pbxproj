@@ -17,8 +17,6 @@
 		6147708F294A049D00E988CD /* AnnounceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147700C294A049C00E988CD /* AnnounceRepo.swift */; };
 		61477090294A049D00E988CD /* getAnnounceDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147700E294A049C00E988CD /* getAnnounceDI.swift */; };
 		61477091294A049D00E988CD /* AnnounceDetailedViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */; };
-		61477092294A049D00E988CD /* AnnounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477012294A049C00E988CD /* AnnounceView.swift */; };
-		61477093294A049D00E988CD /* SingleAnnounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477014294A049C00E988CD /* SingleAnnounceView.swift */; };
 		61477094294A049D00E988CD /* AnnouncesListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477015294A049C00E988CD /* AnnouncesListVM.swift */; };
 		61477096294A049D00E988CD /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477018294A049C00E988CD /* SearchFilterView.swift */; };
 		61477097294A049D00E988CD /* SearchFilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477019294A049C00E988CD /* SearchFilterVM.swift */; };
@@ -99,7 +97,6 @@
 		61477114294DF19F00E988CD /* RecapCreateAnnounce2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477113294DF19F00E988CD /* RecapCreateAnnounce2.swift */; };
 		61477116294EEBC500E988CD /* GetAnnounceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477115294EEBC500E988CD /* GetAnnounceCoordinator.swift */; };
 		61477118294EF08B00E988CD /* SearchFilterView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477117294EF08B00E988CD /* SearchFilterView2.swift */; };
-		6147711A294F013300E988CD /* HomePageView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61477119294F013300E988CD /* HomePageView2.swift */; };
 		6147711C2952FA2300E988CD /* FavouriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6147711B2952FA2300E988CD /* FavouriteCoordinator.swift */; };
 		6163393D294A01CE006A10A5 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6163393C294A01CE006A10A5 /* NukeUI */; };
 		61633945294A0280006A10A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 61633944294A0280006A10A5 /* FirebaseAuth */; };
@@ -120,8 +117,6 @@
 		61B546F6296588730083C71F /* AnnouncesListViewUikit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546F4296588730083C71F /* AnnouncesListViewUikit.xib */; };
 		61B546F92966C73D0083C71F /* HomePageUIkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B546F72966C73D0083C71F /* HomePageUIkit.swift */; };
 		61B546FA2966C73D0083C71F /* HomePageUIkit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546F82966C73D0083C71F /* HomePageUIkit.xib */; };
-		61B546FD2966CFF20083C71F /* HomePageUikitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B546FB2966CFF20083C71F /* HomePageUikitTest.swift */; };
-		61B546FE2966CFF20083C71F /* HomePageUikitTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B546FC2966CFF20083C71F /* HomePageUikitTest.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,8 +132,6 @@
 		6147700C294A049C00E988CD /* AnnounceRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceRepo.swift; sourceTree = "<group>"; };
 		6147700E294A049C00E988CD /* getAnnounceDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getAnnounceDI.swift; sourceTree = "<group>"; };
 		61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceDetailedViewVM.swift; sourceTree = "<group>"; };
-		61477012294A049C00E988CD /* AnnounceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceView.swift; sourceTree = "<group>"; };
-		61477014294A049C00E988CD /* SingleAnnounceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnnounceView.swift; sourceTree = "<group>"; };
 		61477015294A049C00E988CD /* AnnouncesListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncesListVM.swift; sourceTree = "<group>"; };
 		61477018294A049C00E988CD /* SearchFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
 		61477019294A049C00E988CD /* SearchFilterVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterVM.swift; sourceTree = "<group>"; };
@@ -217,7 +210,6 @@
 		61477113294DF19F00E988CD /* RecapCreateAnnounce2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapCreateAnnounce2.swift; sourceTree = "<group>"; };
 		61477115294EEBC500E988CD /* GetAnnounceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnnounceCoordinator.swift; sourceTree = "<group>"; };
 		61477117294EF08B00E988CD /* SearchFilterView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView2.swift; sourceTree = "<group>"; };
-		61477119294F013300E988CD /* HomePageView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView2.swift; sourceTree = "<group>"; };
 		6147711B2952FA2300E988CD /* FavouriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCoordinator.swift; sourceTree = "<group>"; };
 		61B546DC295AE6C50083C71F /* FavouriteViewUikit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewUikit.swift; sourceTree = "<group>"; };
 		61B546DD295AE6C50083C71F /* FavouriteViewUikit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteViewUikit.xib; sourceTree = "<group>"; };
@@ -231,8 +223,6 @@
 		61B546F4296588730083C71F /* AnnouncesListViewUikit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnouncesListViewUikit.xib; sourceTree = "<group>"; };
 		61B546F72966C73D0083C71F /* HomePageUIkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageUIkit.swift; sourceTree = "<group>"; };
 		61B546F82966C73D0083C71F /* HomePageUIkit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageUIkit.xib; sourceTree = "<group>"; };
-		61B546FB2966CFF20083C71F /* HomePageUikitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageUikitTest.swift; sourceTree = "<group>"; };
-		61B546FC2966CFF20083C71F /* HomePageUikitTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageUikitTest.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,31 +339,11 @@
 		61477010294A049C00E988CD /* Announces */ = {
 			isa = PBXGroup;
 			children = (
-				61477119294F013300E988CD /* HomePageView2.swift */,
-				61477012294A049C00E988CD /* AnnounceView.swift */,
-				61477015294A049C00E988CD /* AnnouncesListVM.swift */,
-				61B546EB29641AE70083C71F /* AnnounceDetailedViewUikit.swift */,
-				61B546EC29641AE70083C71F /* AnnounceDetailedViewUikit.xib */,
-				61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */,
-				61477013294A049C00E988CD /* Components */,
-				61B546EF29657F6B0083C71F /* AnnounceCell.swift */,
-				61B546F029657F6B0083C71F /* AnnounceCell.xib */,
-				61B546F3296588730083C71F /* AnnouncesListViewUikit.swift */,
-				61B546F4296588730083C71F /* AnnouncesListViewUikit.xib */,
-				61B546F72966C73D0083C71F /* HomePageUIkit.swift */,
-				61B546F82966C73D0083C71F /* HomePageUIkit.xib */,
-				61B546FB2966CFF20083C71F /* HomePageUikitTest.swift */,
-				61B546FC2966CFF20083C71F /* HomePageUikitTest.xib */,
+				61B5470129681FEE0083C71F /* AnnounceDetail */,
+				61B5470029681FBC0083C71F /* AnnouncesList */,
+				61B546FF29681FA50083C71F /* Homepage */,
 			);
 			path = Announces;
-			sourceTree = "<group>";
-		};
-		61477013294A049C00E988CD /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				61477014294A049C00E988CD /* SingleAnnounceView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		61477017294A049C00E988CD /* Filters */ = {
@@ -881,6 +851,37 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		61B546FF29681FA50083C71F /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				61B546F72966C73D0083C71F /* HomePageUIkit.swift */,
+				61B546F82966C73D0083C71F /* HomePageUIkit.xib */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		61B5470029681FBC0083C71F /* AnnouncesList */ = {
+			isa = PBXGroup;
+			children = (
+				61477015294A049C00E988CD /* AnnouncesListVM.swift */,
+				61B546EF29657F6B0083C71F /* AnnounceCell.swift */,
+				61B546F029657F6B0083C71F /* AnnounceCell.xib */,
+				61B546F3296588730083C71F /* AnnouncesListViewUikit.swift */,
+				61B546F4296588730083C71F /* AnnouncesListViewUikit.xib */,
+			);
+			path = AnnouncesList;
+			sourceTree = "<group>";
+		};
+		61B5470129681FEE0083C71F /* AnnounceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				61B546EB29641AE70083C71F /* AnnounceDetailedViewUikit.swift */,
+				61B546EC29641AE70083C71F /* AnnounceDetailedViewUikit.xib */,
+				61477011294A049C00E988CD /* AnnounceDetailedViewVM.swift */,
+			);
+			path = AnnounceDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -963,7 +964,6 @@
 				61B546FA2966C73D0083C71F /* HomePageUIkit.xib in Resources */,
 				17ECF63D280C438F00D3E87F /* LaunchScreen.storyboard in Resources */,
 				61B546DF295AE6C50083C71F /* FavouriteViewUikit.xib in Resources */,
-				61B546FE2966CFF20083C71F /* HomePageUikitTest.xib in Resources */,
 				61B546F229657F6B0083C71F /* AnnounceCell.xib in Resources */,
 				17ECF63A280C438F00D3E87F /* Assets.xcassets in Resources */,
 				614770DF294A0B7000E988CD /* GoogleService-Info.plist in Resources */,
@@ -991,7 +991,6 @@
 				61477114294DF19F00E988CD /* RecapCreateAnnounce2.swift in Sources */,
 				614770CC294A049D00E988CD /* Message.swift in Sources */,
 				614770B3294A049D00E988CD /* FederatedSignInView.swift in Sources */,
-				61477092294A049D00E988CD /* AnnounceView.swift in Sources */,
 				61477097294A049D00E988CD /* SearchFilterVM.swift in Sources */,
 				61477118294EF08B00E988CD /* SearchFilterView2.swift in Sources */,
 				614770EF294B0F4400E988CD /* LoginCoordinator.swift in Sources */,
@@ -1000,7 +999,6 @@
 				614770DB294A049D00E988CD /* Category.swift in Sources */,
 				61B546DE295AE6C50083C71F /* FavouriteViewUikit.swift in Sources */,
 				6147710E294DD8CD00E988CD /* SelectionTitle2.swift in Sources */,
-				61477093294A049D00E988CD /* SingleAnnounceView.swift in Sources */,
 				61B546F5296588730083C71F /* AnnouncesListViewUikit.swift in Sources */,
 				614770CA294A049D00E988CD /* MessageCreateUpdate.swift in Sources */,
 				614770AF294A049D00E988CD /* LoginRestrictedView.swift in Sources */,
@@ -1036,7 +1034,6 @@
 				614770B5294A049D00E988CD /* LoginVM.swift in Sources */,
 				614770D6294A049D00E988CD /* PhotoView.swift in Sources */,
 				614770AA294A049D00E988CD /* LoggingState.swift in Sources */,
-				6147711A294F013300E988CD /* HomePageView2.swift in Sources */,
 				614770B8294A049D00E988CD /* FavouriteDomaine.swift in Sources */,
 				17ECF655280C4A6200D3E87F /* MainCoordinator.swift in Sources */,
 				614770DD294A049D00E988CD /* CategoriesViewVM.swift in Sources */,
@@ -1071,7 +1068,6 @@
 				61477116294EEBC500E988CD /* GetAnnounceCoordinator.swift in Sources */,
 				614770CD294A049D00E988CD /* ChatVM.swift in Sources */,
 				61477110294DE03B00E988CD /* SelectionAddress2.swift in Sources */,
-				61B546FD2966CFF20083C71F /* HomePageUikitTest.swift in Sources */,
 				614770BA294A049D00E988CD /* Favourite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

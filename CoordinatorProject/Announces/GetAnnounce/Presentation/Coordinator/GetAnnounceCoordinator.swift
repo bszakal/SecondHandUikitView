@@ -25,8 +25,6 @@ class GetAnnounceCoordinator:NSObject, Coordinator {
     }
         
     func start(){
-      //  let homePageVC = UIHostingController(rootView: HomePageView2(delegate: self))
-//        let homePageVC = HomePageUikitTest(coordinator: self)
         let homePageVC = HomePageUIkit(coordinator: self)
         rootViewController.pushViewController(homePageVC, animated: false)
     }
@@ -72,7 +70,7 @@ extension GetAnnounceCoordinator: UINavigationControllerDelegate{
                               willShow viewController: UIViewController,
                               animated: Bool) {
         
-        if viewController as? UIHostingController<HomePageView2> != nil {
+        if viewController as? HomePageUIkit != nil {
             self.rootViewController.tabBarController?.tabBar.isHidden = false
         } else {
             self.rootViewController.tabBarController?.tabBar.isHidden = true
